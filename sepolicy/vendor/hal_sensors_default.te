@@ -1,23 +1,21 @@
-# Allow access to the HALs
-hal_client_domain(hal_sensors_default, hal_graphics_allocator);
+hal_client_domain(hal_sensors_default, hal_audio)
 
-# Allow hal_sensors_default to find fwk_camera_service
-allow hal_sensors_default fwk_camera_service:service_manager find;
+allow hal_sensors_default hidraw_device:chr_file rw_file_perms;
+get_prop(hal_sensors_default, vendor_dynamic_sensor_prop)
 
-# Allow hal_sensors_default to find fwk_camera_hwservice
-allow hal_sensors_default fwk_camera_hwservice:hwservice_manager find;
+rw_dir_file(hal_sensors_default, sysfs_batteryinfo)
+allow hal_sensors_default sysfs_batteryinfo:dir { search };
 
-# Allow hal_sensors_default to find hal_graphics_mapper_hwservice
-allow hal_sensors_default hal_graphics_mapper_hwservice:hwservice_manager find;
+allow hal_sensors_default audioserver:binder { call transfer };
+allow hal_sensors_default audioserver_service:service_manager find;
+allow hal_sensors_default hal_audio_hwservice:hwservice_manager find;
 
-# Allow hal_sensors_default to find hidl_token_hwservice
-allow hal_sensors_default hidl_token_hwservice:hwservice_manager find;
+allow hal_sensors_default sound_device:chr_file { ioctl read open };
 
-# Allow sensors HAL to access ged
-allow hal_sensors_default proc_ged:file r_file_perms;
+allow hal_sensors_default hal_audio_default:unix_stream_socket connectto;
 
-# Allow binder communication with cameraserver
-binder_call(hal_sensors_default, cameraserver)
+allow hal_sensors_default device:dir r_dir_perms;
+allow hal_sensors_default hidraw_device:chr_file rw_file_perms;
 
-get_prop(hal_sensors_default, camera_config_prop)
-get_prop(hal_sensors_default, vendor_camera_prop)
+binder_use(hal_sensors_default)
+binder_call(hal_sensors_default, system_server)

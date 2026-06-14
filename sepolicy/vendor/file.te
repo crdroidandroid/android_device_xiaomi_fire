@@ -2,15 +2,28 @@
 type vendor_camera_data_file, data_file_type, file_type;
 type camera_persist_file, file_type;
 
-# Display
-type vendor_sysfs_display, fs_type, sysfs_type;
+# connsys
+type connsys_vendor_file, file_type, vendor_file_type;
 
-# Fingerprint
-type vendor_fingerprint_data_file, data_file_type, file_type;
-type vendor_sysfs_fingerprint, fs_type, sysfs_type;
+# Pstore
+type init_pstore_blk_sh_exec, exec_type, vendor_file_type, file_type;
 
-# GPU
-type vendor_sysfs_gpu, fs_type, sysfs_type;
+# DT2W
+type proc_tp_gesture, fs_type, proc_type;
 
 # Touchpanel
-type sysfs_touchpanel, sysfs_type, fs_type;
+type sysfs_touchpanel, fs_type, sysfs_type;
+
+# Ultrasound
+type sound_device, dev_type;
+
+# Thermal 
+type vendor_mi_thermald, domain;
+type vendor_mi_thermald_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(vendor_mi_thermald)
+
+# Ril
+type vendor_modem_data_file, data_file_type, file_type;
+
+# Wifi
+type vendor_mac_vendor_data_file, data_file_type, file_type, mlstrustedobject;

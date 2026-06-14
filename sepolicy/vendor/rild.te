@@ -1,2 +1,2 @@
-allow rild sysfs_keypad_file:dir search;
-allow rild sysfs_keypad_file:file rw_file_perms;
+allow rild metadata_file:dir { search open read };
+allow rild gsi_metadata_file:dir { search open read };

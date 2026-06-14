@@ -1,3 +1,13 @@
-# Global
-ro.fota.oem                        u:object_r:build_prop:s0
-ro.product.marketname              u:object_r:build_prop:s0
+ro.product.mod_device u:object_r:build_prop:s0
+
+# Camera
+ro.camera.req.fmq.size                      u:object_r:exported_camera_prop:s0
+ro.vendor.camera.res.fmq.size               u:object_r:exported_camera_prop:s0
+
+# Hardware
+ro.mediatek.platform                    u:object_r:exported_default_prop:s0
+ro.chipname                             u:object_r:exported_default_prop:s0
+
+# MIUI
+ro.miui.build.region                    u:object_r:exported_system_prop:s0
+ro.product.marketname                   u:object_r:exported_default_prop:s0 exact string

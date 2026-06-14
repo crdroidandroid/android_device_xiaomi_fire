@@ -1,9 +1,12 @@
-# Firmware - from fire-user 14 UP1A.231005.007 V816.0.8.0.UMXMIXM release-keys
+# Unpinned blobs from missi-user 15 AP3A.240905.015.A2 OS2.0.212.0.VHZMIXM release-keys
+# Redmi Note 12S (OS2.0.212.0.VHZMIXM)
+
+audio_dsp.img;AB
 gz.img;AB
 lk.img;AB
-logo.bin:logo.img;AB
 md1img.img;AB
-preloader_fire.bin:preloader_raw.img;AB
+pi_img.img;AB
+preloader_raw.img;AB
 scp.img;AB
 spmfw.img;AB
 sspm.img;AB
