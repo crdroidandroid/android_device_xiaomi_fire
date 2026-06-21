@@ -311,9 +311,6 @@ PRODUCT_PACKAGES += \
     libextensioneffect
 
 PRODUCT_PACKAGES += \
-    android.hardware.media.c2-mtk-service
-
-PRODUCT_PACKAGES += \
     MtkInCallService
 
 # Axion Performance Mode
