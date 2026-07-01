@@ -144,7 +144,6 @@ sys.ipo.pwrdncap=2
 vendor.af.dynamic.sleeptime.enable=true
 vendor.af.pausewait.enable=false
 vendor.af.threshold.src_and_effect_count=5
-vendor.camera.aux.packagelist=com.xiaomi.cameratest,com.xiaomi.factory.mmi,com.xiaomi.runin
 vendor.mtk_thumbnail_optimization=true
 vendor.rild.libargs=-d /dev/ttyC0
 vendor.rild.libpath=mtk-ril.so
