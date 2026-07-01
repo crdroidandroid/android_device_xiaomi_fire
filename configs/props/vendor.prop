@@ -651,5 +651,7 @@ vendor.media.heif.highThreshold=20
 vendor.mtk.camera.app.fd.video=1
 vendor.mtk.vdec.decode.error.handle.mode=3
 vendor.mtk.vdec.waitkeyframeforplay=11
+persist.sys.sf.color_mode=0
+persist.sys.sf.native_mode=0
 persist.sys.usb.config=mtp,adb
 ro.debuggable=1
