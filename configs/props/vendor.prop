@@ -653,5 +653,6 @@ vendor.mtk.vdec.decode.error.handle.mode=3
 vendor.mtk.vdec.waitkeyframeforplay=11
 persist.sys.sf.color_mode=0
 persist.sys.sf.native_mode=0
+persist.vendor.sensor.mischeck=true
 persist.sys.usb.config=mtp,adb
 ro.debuggable=1

@@ -158,7 +158,7 @@ PRODUCT_PACKAGES += \
     libbase_shim
 
 PRODUCT_PACKAGES += \
-    FrameworksResOverlaySea \
+    FrameworksOverlaySea \
     TetheringConfigOverlay \
     SettingsOverlaySea \
     SystemUIOverlaySea \
@@ -199,7 +199,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.version-1_4.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version-1_4.xml \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml \
     frameworks/native/data/etc/android.hardware.location.gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.location.gps.xml \
-    frameworks/native/data/etc/android.hardware.sensor.light.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.light.xml \
     frameworks/native/data/etc/android.hardware.nfc.hcef.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_ksrn/android.hardware.nfc.hcef.xml \
     frameworks/native/data/etc/android.hardware.nfc.hce.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_ksrn/android.hardware.nfc.hce.xml \
     frameworks/native/data/etc/android.hardware.nfc.uicc.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_ksrn/android.hardware.nfc.uicc.xml \
@@ -244,18 +243,8 @@ PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
 
 # Bluetooth
-SOONG_CONFIG_NAMESPACES += android_hardware_audio
-SOONG_CONFIG_android_hardware_audio += run_64bit
-SOONG_CONFIG_android_hardware_audio_run_64bit := true
-
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth-service.mediatek
-
-PRODUCT_PACKAGES += \
-    android.hardware.audio.service \
-    android.hardware.audio@7.1-impl \
-    android.hardware.audio.effect@7.0-impl \
-    android.hardware.soundtrigger@2.3-impl
 
 PRODUCT_PACKAGES += \
     audio.primary.default \
@@ -273,9 +262,11 @@ PRODUCT_PACKAGES += \
     libbassboostsw \
     libbundleaidl \
     libdownmixaidl \
+    libdynproc \
     libdynamicsprocessingaidl \
     libequalizersw \
     libenvreverbsw \
+    libhapticgenerator \
     libhapticgeneratoraidl \
     libloudnessenhanceraidl \
     libnssw \
@@ -283,6 +274,7 @@ PRODUCT_PACKAGES += \
     libpresetreverbsw \
     libreverbaidl \
     libspatializersw \
+    libvibratorutils \
     libvirtualizersw \
     libvisualizeraidl \
     libvolumesw \
