@@ -290,10 +290,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     MtkInCallService
 
-# Axion Performance Mode
-PERF_GOV_SUPPORTED := true
-PERF_DEFAULT_GOV := schedutil
-
 # ConsumerIR
 PRODUCT_PACKAGES += \
     android.hardware.ir-service.example
