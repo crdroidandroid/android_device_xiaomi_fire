@@ -5,7 +5,6 @@
 //
 
 runtime_resource_overlay {
-    name: "WifiOverlay",
-    
+    name: "WifiOverlaySea",
     vendor: true,
 }
