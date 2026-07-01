@@ -5,7 +5,6 @@
 //
 
 runtime_resource_overlay {
-    name: "FrameworksResOverlaySea",
+    name: "FrameworksOverlaySea",
     vendor: true,
-    resource_dirs: ["res"]
 }
