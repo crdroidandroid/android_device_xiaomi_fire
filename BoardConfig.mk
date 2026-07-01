@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2026 The LineageOS Project
+# Copyright (C) 2026 The YgorBRxx Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -34,7 +34,6 @@ AB_OTA_PARTITIONS := \
     vbmeta \
     vbmeta_system \
     vbmeta_vendor
-#BOARD_USES_RECOVERY_AS_BOOT := true
 
 # Architecture
 TARGET_ARCH := arm64
@@ -73,7 +72,6 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 
 BOARD_EROFS_COMPRESSOR := lz4
 BOARD_RAMDISK_USE_LZ4 := true
-#BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
 BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 67108864
 
@@ -95,9 +93,7 @@ BOARD_USES_GENERIC_KERNEL_IMAGE := true
 TARGET_NO_KERNEL_OVERRIDE := true
 BOARD_KERNEL_IMAGE_NAME := Image.gz
 
-
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
-#BOARD_KERNEL_SEPARATED_DTBO := true
 
 # Kernel (prebuilt)
 TARGET_FORCE_PREBUILT_KERNEL := true
@@ -114,7 +110,6 @@ BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(KERNEL_PATH)/vendor_dl
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(wildcard $(KERNEL_PATH)/vendor_ramdisk/*.ko)
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(KERNEL_PATH)/vendor_ramdisk/modules.load))
 BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(KERNEL_PATH)/vendor_ramdisk/modules.load.recovery))
-
 
 BOOT_KERNEL_MODULES := $(BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD) $(BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD)
 
