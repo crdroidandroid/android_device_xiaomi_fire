@@ -236,6 +236,7 @@ PRODUCT_PACKAGES += \
 
 
 # Extra files
+TARGET_USES_VULKAN := true
 TARGET_EXCLUDES_AUDIOFX := true
 
 # DRM (Clearkey)
