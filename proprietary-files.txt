@@ -2116,6 +2116,7 @@ vendor/lib64/vendor.mediatek.hardware.mtkradioex.voice-V1-ndk.so
 #y system_ext/lib/vendor.mediatek.hardware.videotelephony@1.0.so
 #y system_ext/lib64/vendor.mediatek.hardware.videotelephony-V1-ndk.so
 #y system_ext/lib64/vendor.mediatek.hardware.videotelephony@1.0.so
+vendor/etc/permissions/android.hardware.telephony.ims.prebuilt.xml:vendor/etc/permissions/android.hardware.telephony.ims.xml
 vendor/lib/hw/vendor.mediatek.hardware.videotelephony-impl.so
 vendor/lib/vendor.mediatek.hardware.rcs-V1-ndk.so
 vendor/lib/vendor.mediatek.hardware.rcs@2.0.so
@@ -2329,7 +2330,7 @@ vendor/bin/mtk_lbs_service
 # vendor/bin/netdc
 # vendor/bin/nfcstackp-vendor;DISABLE_CHECKELF
 vendor/bin/nvram_daemon
-# vendor/bin/rcs_volte_stack
+vendor/bin/rcs_volte_stack
 # vendor/bin/recordevent
 # vendor/bin/replayevent
 # vendor/bin/rt5512_calibration
@@ -2346,13 +2347,13 @@ vendor/bin/teei_daemon
 # vendor/bin/trusty-ut-ctrl
 vendor/bin/v3avpud
 vendor/bin/volte_clientapi_ua
-# vendor/bin/volte_imcb
-# vendor/bin/volte_imsm_93
-# vendor/bin/volte_md_status
-# vendor/bin/volte_rcs_ua
-# vendor/bin/volte_stack
-# vendor/bin/volte_ua
-# vendor/bin/wfca
+vendor/bin/volte_imcb
+vendor/bin/volte_imsm_93
+vendor/bin/volte_md_status
+vendor/bin/volte_rcs_ua
+vendor/bin/volte_stack
+vendor/bin/volte_ua
+vendor/bin/wfca
 vendor/bin/wlan_assistant
 vendor/bin/wmt_launcher
 vendor/bin/wmt_loader
@@ -2406,13 +2407,13 @@ vendor/etc/init/init.md_apps.rc
 # vendor/etc/init/init.thermal_manager.rc
 # vendor/etc/init/init.thermalloadalgod.rc
 # vendor/etc/init/init.touch.rc
-# vendor/etc/init/init.volte_imcb.rc
-# vendor/etc/init/init.volte_imsm_93.rc
-# vendor/etc/init/init.volte_md_status.rc
-# vendor/etc/init/init.volte_stack.rc
-# vendor/etc/init/init.volte_ua.rc
+vendor/etc/init/init.volte_imcb.rc
+vendor/etc/init/init.volte_imsm_93.rc
+vendor/etc/init/init.volte_md_status.rc
+vendor/etc/init/init.volte_stack.rc
+vendor/etc/init/init.volte_ua.rc
 vendor/etc/init/init.vtservice_aidl.rc
-# vendor/etc/init/init.wfca.rc
+vendor/etc/init/init.wfca.rc
 vendor/etc/init/init.wlan_drv.rc
 vendor/etc/init/init.wmt_drv.rc
 # vendor/etc/init/init.wod.rc
