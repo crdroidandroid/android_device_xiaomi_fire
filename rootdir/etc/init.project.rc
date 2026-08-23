@@ -118,9 +118,6 @@ on property:vendor.fp.dummy.dfs=*
     stop vendor.fps_hal
     start vendor.fps_hal
 
-on post-fs-data
-    mkdir /data/vendor/audiohal 0771 system audio
-
 on init
     # Refer to http://source.android.com/devices/tech/storage/index.html
     # It said, "Starting in Android 4.4, multiple external storage devices are surfaced to developers through

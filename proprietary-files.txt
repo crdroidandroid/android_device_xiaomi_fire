@@ -1907,23 +1907,23 @@ vendor/lib64/hw/local_time.default.so
 #y lib64/libstagefright_framecapture_utils.so
 #y lib64/libstagefright_graphicbuffersource_aidl.so
 #y lib64/libstagefright_surface_utils.so
-#y system_ext/lib/libged_sys.so
-#y system_ext/lib/libgralloc_extra_sys.so
-#y system_ext/lib/libsf_cpupolicy.so
-#y system_ext/lib/libstagefright_mbrain.so
-#y system_ext/lib/libstagefright_wfd_mtk.so
+system_ext/lib/libged_sys.so
+system_ext/lib/libgralloc_extra_sys.so
+system_ext/lib/libsf_cpupolicy.so
+system_ext/lib/libstagefright_mbrain.so
+system_ext/lib/libstagefright_wfd_mtk.so
 system_ext/lib64/libged_sys.so
 system_ext/lib64/libgralloc_extra_sys.so
 system_ext/lib64/libsf_cpupolicy.so
 system_ext/lib64/libstagefright_mbrain.so
 system_ext/lib64/libstagefright_wfd_mtk.so
-# vendor/bin/hw/android.hardware.media.c2-mediatek
-# vendor/bin/hw/android.hardware.media.c2-mediatek-64b
-# vendor/bin/hw/android.hardware.media.c2@1.2-mediatek
-# vendor/bin/hw/android.hardware.media.c2@1.2-mediatek-64b
-# vendor/bin/hw/android.hardware.media.omx@1.0-service
-# vendor/etc/init/android.hardware.media.c2-mediatek.rc
-# vendor/etc/init/android.hardware.media.omx@1.0-service.rc
+vendor/bin/hw/android.hardware.media.c2-mediatek
+vendor/bin/hw/android.hardware.media.c2-mediatek-64b
+vendor/bin/hw/android.hardware.media.c2@1.2-mediatek
+vendor/bin/hw/android.hardware.media.c2@1.2-mediatek-64b
+vendor/bin/hw/android.hardware.media.omx@1.0-service
+vendor/etc/init/android.hardware.media.c2-mediatek.rc
+vendor/etc/init/android.hardware.media.omx@1.0-service.rc
 vendor/etc/seccomp_policy/mediacodec.policy
 #y vendor/lib/libcodec2_aidl.so
 vendor/lib/libcodec2_fsr.so
@@ -2479,8 +2479,8 @@ vendor/etc/rsc/ROW/ro.prop
 vendor/etc/rsc/ROW/rw.prop
 vendor/etc/rsc/default/ro.prop
 vendor/etc/rsc/default/rw.prop
-#y vendor/etc/seccomp_policy/android.hardware.media.c2@1.2-extended-seccomp-policy
-#y vendor/etc/seccomp_policy/android.hardware.media.c2@1.2-mediatek-seccomp-policy
+vendor/etc/seccomp_policy/android.hardware.media.c2@1.2-extended-seccomp-policy
+vendor/etc/seccomp_policy/android.hardware.media.c2@1.2-mediatek-seccomp-policy
 vendor/etc/seccomp_policy/mediaextractor.policy
 vendor/etc/seccomp_policy/mediaswcodec.policy
 # vendor/etc/vintf/manifest/CommandService.xml
@@ -2493,7 +2493,7 @@ vendor/etc/vintf/manifest/gnss-mtk.xml
 vendor/etc/vintf/manifest/manifest_allocator.xml
 vendor/etc/vintf/manifest/manifest_apuware_utils_aidl.xml
 vendor/etc/vintf/manifest/manifest_hwcomposer.xml
-# vendor/etc/vintf/manifest/manifest_media_c2_default.xml
+vendor/etc/vintf/manifest/manifest_media_c2_default.xml
 # vendor/etc/vintf/manifest/manifest_thh.xml
 vendor/etc/vintf/manifest/mapper.mediatek.xml
 # vendor/etc/vintf/manifest/memtrack-mediatek.xml
