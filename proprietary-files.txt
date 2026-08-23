@@ -1844,14 +1844,14 @@ vendor/etc/gnss/agps_profiles_conf2.xml
 
 # Health
 # vendor/bin/hw/android.hardware.health-service.example
-# vendor/bin/hw/vendor.xiaomi.hardware.micharge-service
+vendor/bin/hw/vendor.xiaomi.hardware.micharge-service
 vendor/bin/batterysecret
 # vendor/etc/init/android.hardware.health-service.example.rc
 vendor/etc/init/init.batterysecret.rc
-# vendor/etc/init/vendor.xiaomi.hardware.micharge-service.rc
+vendor/etc/init/vendor.xiaomi.hardware.micharge-service.rc
 # vendor/etc/vintf/manifest/android.hardware.health-service.example.xml
-# vendor/etc/vintf/manifest/vendor.xiaomi.hardware.micharge.xml
-# vendor/lib64/vendor.xiaomi.hardware.micharge-V2-ndk.so
+vendor/etc/vintf/manifest/vendor.xiaomi.hardware.micharge.xml
+vendor/lib64/vendor.xiaomi.hardware.micharge-V2-ndk.so
 
 # IR
 # vendor/bin/hw/android.hardware.ir@1.0-service

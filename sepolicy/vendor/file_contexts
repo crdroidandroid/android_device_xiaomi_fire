@@ -73,6 +73,9 @@
 # Mi Thermald
 /vendor/bin/mi_thermald u:object_r:mi_thermald_exec:s0
 
+# MiCharge
+/(vendor|system/vendor)/bin/hw/vendor\.xiaomi\.hardware\.micharge-service u:object_r:hal_micharge_default_exec:s0
+
 # Vibrator
 /(vendor|system/vendor)/bin/hw/vendor\.qti\.hardware\.vibrator\.service\.ygorbrxx u:object_r:hal_vibrator_default_exec:s0
 
