@@ -4,8 +4,10 @@ type mtk_hal_audio_exec, exec_type, vendor_file_type, file_type;
 init_daemon_domain(mtk_hal_audio)
 
 # Camera
-type vendor_camera_data_file, data_file_type, file_type;
 type camera_persist_file, file_type;
+type vendor_camera_data_file, data_file_type, file_type;
+type vendor_camera_update_db_file, file_type, vendor_file_type;
+type procfs_memory, proc_type, fs_type;
 
 # connsys
 type connsys_vendor_file, file_type, vendor_file_type;
@@ -47,6 +49,11 @@ init_daemon_domain(vendor_mi_thermald)
 
 # Ril
 type vendor_modem_data_file, data_file_type, file_type;
+
+# GNSS
+type mtk_hal_gnss_exec, exec_type, vendor_file_type, file_type;
+type mtk_hal_gnss, domain;
+init_daemon_domain(mtk_hal_gnss)
 
 # Micharge
 type hal_micharge_default, domain;
