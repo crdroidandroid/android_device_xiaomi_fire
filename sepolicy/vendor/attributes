@@ -3,3 +3,7 @@ attribute vendor_hal_displayfeature;
 attribute vendor_hal_displayfeature_client;
 attribute vendor_hal_displayfeature_server;
 
+# TouchFeature
+attribute hal_touchfeature_xiaomi;
+attribute hal_touchfeature_xiaomi_client;
+attribute hal_touchfeature_xiaomi_server;

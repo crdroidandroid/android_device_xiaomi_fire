@@ -2257,7 +2257,7 @@ vendor/bin/hw/vendor.mediatek.hardware.nvram-service
 #y vendor/bin/hw/vendor.xiaomi.hardware.misys@2.0-service
 #y vendor/bin/hw/vendor.xiaomi.hardware.misys@3.0-service
 #y vendor/bin/hw/vendor.xiaomi.hardware.misys@4.0-service
-# vendor/bin/hw/vendor.xiaomi.hw.touchfeature-service
+vendor/bin/hw/vendor.xiaomi.hw.touchfeature-service
 vendor/bin/hw/vtservice_aidl
 # vendor/bin/AgentTest
 # vendor/bin/DFtool
@@ -2406,7 +2406,7 @@ vendor/etc/init/init.md_apps.rc
 # vendor/etc/init/init.thermal.rc
 # vendor/etc/init/init.thermal_manager.rc
 # vendor/etc/init/init.thermalloadalgod.rc
-# vendor/etc/init/init.touch.rc
+vendor/etc/init/init.touch.rc
 vendor/etc/init/init.volte_imcb.rc
 vendor/etc/init/init.volte_imsm_93.rc
 vendor/etc/init/init.volte_md_status.rc
@@ -2454,7 +2454,7 @@ vendor/etc/init/vendor.mediatek.hardware.nvram-sevice.rc
 #y vendor/etc/init/vendor.xiaomi.hardware.misys@2.0-service.rc
 #y vendor/etc/init/vendor.xiaomi.hardware.misys@3.0-service.rc
 #y vendor/etc/init/vendor.xiaomi.hardware.misys@4.0-service.rc
-# vendor/etc/init/vendor.xiaomi.hw.touchfeature-service.rc
+vendor/etc/init/vendor.xiaomi.hw.touchfeature-service.rc
 # vendor/etc/init/vibrator-mtk-default.rc
 # vendor/etc/init/vndservicemanager.rc
 vendor/etc/init/volte_clientapi_ua.rc
@@ -2507,7 +2507,7 @@ vendor/etc/vintf/manifest/mtk_lbs_service.xml
 #y vendor/etc/vintf/manifest/vendor.xiaomi.hardware.misys@2.0.xml
 #y vendor/etc/vintf/manifest/vendor.xiaomi.hardware.misys@3.0.xml
 #y vendor/etc/vintf/manifest/vendor.xiaomi.hardware.misys@4.0.xml
-# vendor/etc/vintf/manifest/vendor.xiaomi.hw.touchfeature-service.xml
+vendor/etc/vintf/manifest/vendor.xiaomi.hw.touchfeature-service.xml
 #y vendor/etc/vintf/manifest/vibrator-mtk-default.xml
 vendor/etc/102_SummerDay.png
 vendor/etc/103_Fantasy.png
