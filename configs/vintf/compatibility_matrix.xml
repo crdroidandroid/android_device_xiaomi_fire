@@ -6,22 +6,6 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="false">
-        <name>android.hidl.allocator</name>
-        <version>1.0</version>
-    </hal>
-    <hal format="hidl" optional="false">
-        <name>android.hidl.manager</name>
-        <version>1.0</version>
-    </hal>
-    <hal format="hidl" optional="false">
-        <name>android.hidl.memory</name>
-        <version>1.0</version>
-    </hal>
-    <hal format="hidl" optional="false">
-        <name>android.hidl.token</name>
-        <version>1.0</version>
-    </hal>
     <hal format="aidl" optional="true">
         <name>vendor.mediatek.framework.mtksf_ext</name>
         <version>2</version>
@@ -37,27 +21,6 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="false">
-        <name>android.system.wifi.keystore</name>
-        <version>1.0</version>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>android.hardware.wifi.supplicant</name>
-        <version>1.0-2</version>
-        <interface>
-            <name>ISupplicant</name>
-            <instance>default</instance>
-            <instance>wigigp2p</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.xiaomi.hardware.micharge</name>
-        <version>1.0</version>
-        <interface>
-            <name>IMiCharge</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
     <hal format="aidl" optional="true">
         <name>vendor.xiaomi.hardware.micharge</name>
         <interface>
@@ -65,66 +28,10 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.mediatek.hardware.videotelephony</name>
-        <version>1.0</version>
-        <interface>
-            <name>IVideoTelephony</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
     <hal format="aidl" optional="true">
         <name>vendor.mediatek.hardware.videotelephony</name>
         <interface>
             <name>IVideoTelephony</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.mediatek.hardware.vpu</name>
-        <version>1.0</version>
-        <interface>
-            <name>Ivpu</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.mediatek.hardware.wifi.hostapd_ext</name>
-        <version>1.0</version>
-        <interface>
-            <name>IHostapdVendor</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.mediatek.hardware.wifi.hostapd_ext</name>
-        <version>1.0</version>
-        <interface>
-            <name>IHostapdVendor</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.mediatek.hardware.wifi.supplicant</name>
-        <version>2.0</version>
-        <interface>
-            <name>ISupplicant</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.mediatek.hardware.wifi.supplicant</name>
-        <version>2.2</version>
-        <interface>
-            <name>ISupplicant</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.xiaomi.cit.wifi</name>
-        <version>1.0</version>
-        <interface>
-            <name>IWifiService</name>
             <instance>default</instance>
         </interface>
     </hal>
