@@ -2244,7 +2244,7 @@ vendor/bin/hw/camerahalserver
 vendor/bin/hw/tetheroffloadservice
 #y vendor/bin/hw/vendor.mediatek.hardware.aee@1.1-service
 #y vendor/bin/hw/vendor.mediatek.hardware.aee@V1-service
-# vendor/bin/hw/vendor.mediatek.hardware.gpuserv-service
+vendor/bin/hw/vendor.mediatek.hardware.gpuserv-service
 # vendor/bin/hw/vendor.mediatek.hardware.mbrain-service.mediatek
 vendor/bin/hw/vendor.mediatek.hardware.mmagent-service
 # vendor/bin/hw/vendor.mediatek.hardware.mmlpq@V1-service
@@ -2391,7 +2391,7 @@ vendor/etc/init/display.rc
 # vendor/etc/init/ffu.rc
 vendor/etc/init/fuelgauged_init.rc
 vendor/etc/init/fuelgauged_nvram_init.rc
-#y vendor/etc/init/gpuserv-default.rc
+vendor/etc/init/gpuserv-default.rc
 vendor/etc/init/gsm0710muxd.rc
 vendor/etc/init/hostapd.android.rc
 # vendor/etc/init/init.bip.rc

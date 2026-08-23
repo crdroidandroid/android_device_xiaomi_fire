@@ -121,9 +121,6 @@ on property:vendor.fp.dummy.dfs=*
 on post-fs-data
     mkdir /data/vendor/audiohal 0771 system audio
 
-on boot && property:ro.vendor.mtk.gpu.service=1
-    start vendor.gpuserv-default
-
 # TOUCH KO
 on init
     exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d \
