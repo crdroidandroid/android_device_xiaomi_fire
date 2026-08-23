@@ -2153,7 +2153,7 @@ vendor/lib64/sensors.touch.detect.so
 vendor/etc/sensors/hals.conf
 
 # Soter
-vendor/app/SoterService/SoterService.apk
+# vendor/app/SoterService/SoterService.apk
 
 # Soundtrigger
 vendor/lib/hw/android.hardware.soundtrigger3-impl.so
