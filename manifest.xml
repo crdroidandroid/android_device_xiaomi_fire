@@ -17,11 +17,6 @@
         <transport>hwbinder</transport>
         <fqname>@4.1::IKeymasterDevice/default</fqname>
     </hal>
-    <hal format="hidl">
-        <name>android.hardware.graphics.mapper</name>
-        <transport arch="64">passthrough</transport>
-        <fqname>@4.0::IMapper/default</fqname>
-    </hal>
     <hal format="aidl">
         <name>vendor.mediatek.hardware.composer_ext</name>
         <fqname>IComposerExt/default</fqname>
@@ -164,5 +159,9 @@
     <hal format="aidl">
         <name>vendor.mediatek.hardware.videotelephony</name>
         <fqname>IVideoTelephony/default</fqname>
+    </hal>
+    <hal format="aidl">
+        <name>vendor.mediatek.hardware.mms</name>
+        <fqname>IMms/default</fqname>
     </hal>
 </manifest>
