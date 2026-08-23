@@ -170,6 +170,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     LineageApertureOverlayYgorBRxx \
     LineageDialerYgorBRxx \
+    LineageLauncher3OverlayYgorBRxx \
     LineageSDKOverlayYgorBRxx \
     LineageSettingsOverlayYgorBRxx \
     PowerOffAlarmOverlayYgorBRxx
