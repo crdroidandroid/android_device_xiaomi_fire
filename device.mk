@@ -102,7 +102,6 @@ PRODUCT_PACKAGES += \
     meta_init.rc \
     meta_init.vendor.rc \
     init.recovery.mt6781.rc \
-    init.mt6781.power.rc \
     fstab.mt6781 \
     fstab.mt6781.vendor_ramdisk
 
@@ -174,10 +173,6 @@ PRODUCT_PACKAGES += \
     LineageSDKOverlayYgorBRxx \
     LineageSettingsOverlayYgorBRxx \
     PowerOffAlarmOverlayYgorBRxx
-
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
-
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
@@ -310,12 +305,6 @@ PRODUCT_COPY_FILES += \
 
 # Power
 $(call soong_config_set,power_libperfmgr,mode_extension_lib, //$(DEVICE_PATH):libperfmgr-ext-xiaomi)
-# PRODUCT_PACKAGES += \
-#    android.hardware.power-service.lineage-libperfmgr \
-#    libmtkperf_client_vendor
-
-PRODUCT_PACKAGES += \
-    android.hardware.power-service.pixel-libperfmgr 
 
 # Sensors
 PRODUCT_PACKAGES += \

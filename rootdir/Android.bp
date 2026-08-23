@@ -188,13 +188,6 @@ prebuilt_etc {
 
 
 prebuilt_etc {
-    name: "init.mt6781.power.rc",
-    src: "etc/init.mt6781.power.rc",
-    sub_dir: "init/hw",
-    vendor: true,
-}
-
-prebuilt_etc {
     name: "fstab.mt6781",
     src: "etc/fstab.mt6781",
     vendor: true,
