@@ -17,4 +17,8 @@ allow hal_fingerprint_default self:netlink_socket create_socket_perms_no_ioctl;
 get_prop(hal_fingerprint_default, vendor_fp_prop)
 set_prop(hal_fingerprint_default, vendor_fp_prop)
 
+rw_dir_file(hal_fingerprint_default, sysfs_therm)
+rw_dir_file(hal_fingerprint_default, vendor_displayfeature_sysfs)
+allow hal_fingerprint_default vendor_displayfeature_device:chr_file rw_file_perms;
+
 add_hwservice(hal_fingerprint_default, hal_fingerprint_hwservice_xiaomi)

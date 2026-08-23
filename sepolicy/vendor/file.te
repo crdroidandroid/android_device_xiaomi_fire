@@ -11,6 +11,16 @@ type init_pstore_blk_sh_exec, exec_type, vendor_file_type, file_type;
 # DT2W
 type proc_tp_gesture, fs_type, proc_type;
 
+# Display
+type vendor_displayfeature_device, dev_type;
+type vendor_displayfeature_sysfs, fs_type, sysfs_type;
+type vendor_persist_display_file, file_type;
+type vendor_display_data_file, data_file_type, file_type;
+
+type vendor_hal_displayfeature_xiaomi_default_exec, exec_type, vendor_file_type, file_type;
+type vendor_hal_displayfeature_xiaomi_default, domain;
+init_daemon_domain(vendor_hal_displayfeature_xiaomi_default)
+
 # Touchpanel
 type sysfs_touchpanel, fs_type, sysfs_type;
 

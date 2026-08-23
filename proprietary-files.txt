@@ -1624,13 +1624,13 @@ vendor/bin/hw/android.hardware.graphics.composer@3.3-service
 # vendor/bin/hw/android.hardware.memtrack-service.mediatek
 vendor/bin/hw/vendor.mediatek.hardware.mms-service
 vendor/bin/hw/vendor.mediatek.hardware.pq_aidl-service
-# vendor/bin/hw/vendor.xiaomi.hardware.displayfeature@1.0-service
+vendor/bin/hw/vendor.xiaomi.hardware.displayfeature@1.0-service
 vendor/etc/init/android.hardware.graphics.allocator-V2-service-mediatek.rc
 vendor/etc/init/android.hardware.graphics.composer@3.3-service.rc
 vendor/etc/init/vendor.mediatek.hardware.mms-service.rc
 vendor/etc/init/vendor.mediatek.hardware.pq_aidl-service.rc
-# vendor/etc/init/vendor.xiaomi.hardware.displayfeature@1.0-service.rc
-# vendor/etc/vintf/manifest/vendor.xiaomi.hardware.displayfeature@1.0-service.xml
+vendor/etc/init/vendor.xiaomi.hardware.displayfeature@1.0-service.rc
+vendor/etc/vintf/manifest/vendor.xiaomi.hardware.displayfeature@1.0-service.xml
 vendor/lib/egl/egl.cfg
 vendor/lib/egl/libGLES_mali.so;SYMLINK=vendor/lib/hw/vulkan.mt6781.so
 vendor/lib/egl/libGLES_meow.so
@@ -1638,10 +1638,10 @@ vendor/lib/egl/libMEOW_data.so
 vendor/lib/egl/libMEOW_gift.so
 vendor/lib/egl/libMEOW_qt.so
 vendor/lib/egl/libMEOW_trace.so
-# vendor/lib/hw/displayfeature.default.so
+vendor/lib/hw/displayfeature.default.so
 vendor/lib/hw/gralloc.default.so
 vendor/lib/hw/vendor.mediatek.hardware.pq_aidl-impl.so
-# vendor/lib/hw/vendor.xiaomi.hardware.displayfeature@1.0-impl.so
+vendor/lib/hw/vendor.xiaomi.hardware.displayfeature@1.0-impl.so
 vendor/lib/hw/vulkan.mali.so
 vendor/lib/mt6781/libpqparamparser.so;SYMLINK=vendor/lib/libpqparamparser.so
 vendor/lib/libDefaultFpsActor.so
@@ -1697,12 +1697,12 @@ vendor/lib64/egl/libMEOW_data.so
 vendor/lib64/egl/libMEOW_gift.so
 vendor/lib64/egl/libMEOW_qt.so
 vendor/lib64/egl/libMEOW_trace.so
-# vendor/lib64/hw/displayfeature.default.so
+vendor/lib64/hw/displayfeature.default.so
 vendor/lib64/hw/gralloc.default.so
 vendor/lib64/hw/hwcomposer.mt6781.so:vendor/lib64/hw/hwcomposer.mtk_common.so;FIX_SONAME
 # vendor/lib64/hw/hwcomposer.mt6781.so
 vendor/lib64/hw/vendor.mediatek.hardware.pq_aidl-impl.so
-# vendor/lib64/hw/vendor.xiaomi.hardware.displayfeature@1.0-impl.so
+vendor/lib64/hw/vendor.xiaomi.hardware.displayfeature@1.0-impl.so
 vendor/lib64/hw/vulkan.mali.so
 vendor/lib64/mt6781/libpqparamparser.so;SYMLINK=vendor/lib64/libpqparamparser.so
 vendor/lib64/libDefaultFpsActor.so
@@ -2285,7 +2285,7 @@ vendor/bin/chipinfo
 # vendor/bin/consumerird
 # vendor/bin/dconfig
 # vendor/bin/dexecutor
-# vendor/bin/displayfeature
+vendor/bin/displayfeature
 #y vendor/bin/dmabuf_dump
 # vendor/bin/dmc_core
 # vendor/bin/doeapp-memtester
