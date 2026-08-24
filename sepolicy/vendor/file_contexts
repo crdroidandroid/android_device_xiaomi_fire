@@ -150,7 +150,6 @@
 /vendor/lib(64)?/libremosaic_wrapper\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libremosaiclib\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libruy\.so u:object_r:vendor_file:s0
-/vendor/lib(64)?/libsdrparser\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libstereoinfoaccessor_vsdof\.so u:object_r:vendor_file:s0
 /vendor/lib(64)?/libtextclassifier_hash\.so u:object_r:vendor_file:s0
 /vendor/lib(64)?/libvidhance\.so u:object_r:vendor_file:s0
