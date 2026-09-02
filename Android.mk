@@ -14,9 +14,6 @@ FIRE_KERNEL_6_6_SOURCE_ABS := $(abspath $(FIRE_KERNEL_6_6_SOURCE))
 FIRE_KERNEL_6_6_PREBUILT_DIR_ABS := $(abspath $(FIRE_KERNEL_6_6_PREBUILT_DIR))
 FIRE_KERNEL_6_6_OUT_DIR ?= $(FIRE_KERNEL_6_6_PLATFORM_ABS)/out
 FIRE_KERNEL_6_6_STAMP := $(FIRE_KERNEL_6_6_PREBUILT_DIR_ABS)/.fire-kernel-6.6.stamp
-FIRE_KERNEL_6_6_MODULE_SRC_DIR := $(FIRE_KERNEL_6_6_PREBUILT_DIR_ABS)/modules/vendor/lib/modules
-FIRE_KERNEL_6_6_MODULE_NAMES := $(strip $(shell cat $(LOCAL_PATH)/kernel/6.6/vendor-modules.list 2>/dev/null))
-FIRE_KERNEL_6_6_VENDOR_MODULES := $(addprefix $(TARGET_OUT_VENDOR)/lib/modules/,$(FIRE_KERNEL_6_6_MODULE_NAMES))
 
 ifeq ($(FIRE_KERNEL_BUILD_TYPE),source)
 .PHONY: fire-kernel-6.6
@@ -40,23 +37,11 @@ $(FIRE_KERNEL_6_6_STAMP): FORCE
 	$(hide) touch $@
 
 $(TARGET_PREBUILT_KERNEL) $(BOARD_PREBUILT_DTBOIMAGE) $(FIRE_KERNEL_6_6_PREBUILT_DTB) $(FIRE_KERNEL_6_6_PREBUILT_VENDOR_BOOT): $(FIRE_KERNEL_6_6_STAMP)
-
-$(FIRE_KERNEL_6_6_MODULE_SRC_DIR)/%: $(FIRE_KERNEL_6_6_STAMP)
-	$(hide) test -f $@
 endif
 
-$(TARGET_OUT_VENDOR)/lib/modules/%: $(FIRE_KERNEL_6_6_MODULE_SRC_DIR)/%
-	$(hide) mkdir -p $(dir $@)
-	$(hide) cp -f $< $@
-
-ALL_DEFAULT_INSTALLED_MODULES += $(FIRE_KERNEL_6_6_VENDOR_MODULES)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := fire_kernel_6_6_vendor_modules
-LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE_TAGS := optional
-LOCAL_ADDITIONAL_DEPENDENCIES := $(FIRE_KERNEL_6_6_VENDOR_MODULES)
-include $(BUILD_PHONY_PACKAGE)
+# HOS2 uses the stock partitioned module contract (vendor_boot/vendor_dlkm/
+# system_dlkm/odm_dlkm). Do not copy the kernel dist module universe into
+# /vendor/lib/modules; the stock module payload is integrated separately.
 
 endif
 endif
