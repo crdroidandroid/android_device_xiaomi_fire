@@ -22,7 +22,6 @@ AB_OTA_PARTITIONS := \
     system_dlkm \
     vendor_dlkm \
     odm_dlkm \
-    mi_ext \
     vbmeta \
     vbmeta_system \
     vbmeta_vendor
@@ -76,8 +75,9 @@ TARGET_SCREEN_DENSITY := 440
 BOARD_KERNEL_SEPARATED_DTBO := true
 
 # VINTF
-# HOS2 vendor carries the stock device-manifest fragments. Do not overlay the
-# legacy Android 14 monolithic device manifest during the initial bring-up.
+# The extracted vendor carries only a subset of stock fragments; keep the
+# device manifest for the remaining HIDL contracts. HOS2 itself is VINTF level 5.
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     hardware/mediatek/vintf/mediatek_framework_compatibility_matrix.xml \
     hardware/xiaomi/vintf/xiaomi_framework_compatibility_matrix.xml
@@ -92,7 +92,7 @@ ODM_MANIFEST_SKUS += \
 ODM_MANIFEST_HCESIM_FILES := $(DEVICE_PATH)/manifest_hcesim.xml
 
 # Partitions
-BOARD_FLASH_BLOCK_SIZE := 131072                  # 4096 * 32
+BOARD_FLASH_BLOCK_SIZE := 131072                  # stock fire erase block contract
 BOARD_BOOTIMAGE_PARTITION_SIZE := 134217728
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 67108864
 BOARD_DTBOIMG_PARTITION_SIZE := 8388608
@@ -100,6 +100,9 @@ BOARD_SUPER_PARTITION_SIZE := 9130336256
 BOARD_USES_METADATA_PARTITION := true
 
 # Partitions (Dynamic)
+# mi_ext is a HyperOS product-overlay partition. It must not be mounted into
+# AOSP/crDroid userspace; keeping it in the target group could also overwrite
+# the stock partition with an empty custom image.
 BOARD_SUPER_PARTITION_GROUPS := mediatek_dynamic_partitions
 BOARD_MEDIATEK_DYNAMIC_PARTITIONS_PARTITION_LIST := \
     system \
@@ -108,8 +111,7 @@ BOARD_MEDIATEK_DYNAMIC_PARTITIONS_PARTITION_LIST := \
     vendor \
     system_dlkm \
     vendor_dlkm \
-    odm_dlkm \
-    mi_ext
+    odm_dlkm
 BOARD_MEDIATEK_DYNAMIC_PARTITIONS_SIZE := 9126141952 # BOARD_SUPER_PARTITION_SIZE - 4MB
 -include vendor/lineage/config/BoardConfigReservedSize.mk
 
@@ -148,8 +150,8 @@ include device/mediatek/sepolicy_vndr/SEPolicy.mk
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
-# SPL
-VENDOR_SECURITY_PATCH := 2026-06-05
+# SPL - OS2.0.209.0.VMXMIXM
+VENDOR_SECURITY_PATCH := 2026-07-01
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
