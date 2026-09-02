@@ -4,7 +4,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-FIRE_KERNEL_VERSION ?= 4.19
+# HOS2 ships with the Android 15 6.6 GKI contract. Keep the legacy 4.19 path
+# available only as an explicit developer override while bring-up is ongoing.
+FIRE_KERNEL_VERSION ?= 6.6
 FIRE_KERNEL_BUILD_TYPE ?= source
 
 ifneq ($(filter source prebuilt,$(FIRE_KERNEL_BUILD_TYPE)),$(FIRE_KERNEL_BUILD_TYPE))
@@ -55,10 +57,6 @@ BOARD_PREBUILT_DTBIMAGE_DIR := $(FIRE_KERNEL_6_6_PREBUILT_DIR)
 BOARD_PREBUILT_DTBOIMAGE := $(FIRE_KERNEL_6_6_PREBUILT_DTBO)
 
 ifeq ($(FIRE_KERNEL_6_6_VENDOR_BOOT),true)
-AB_OTA_PARTITIONS += vendor_boot
-BOARD_INCLUDE_DTB_IN_BOOTIMG := false
-BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 67108864
-BOARD_VENDOR_BOOTIMG_HEADER_VERSION := 3
 BOARD_PREBUILT_VENDOR_BOOTIMAGE := $(FIRE_KERNEL_6_6_PREBUILT_VENDOR_BOOT)
 endif
 else
