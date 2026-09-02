@@ -10,15 +10,19 @@ BUILD_BROKEN_DUP_RULES := true
 
 # A/B
 AB_OTA_UPDATER := true
-BOARD_USES_RECOVERY_AS_BOOT := true
 
 AB_OTA_PARTITIONS := \
     boot \
     dtbo \
+    vendor_boot \
     system \
     system_ext \
     product \
     vendor \
+    system_dlkm \
+    vendor_dlkm \
+    odm_dlkm \
+    mi_ext \
     vbmeta \
     vbmeta_system \
     vbmeta_vendor
@@ -54,28 +58,16 @@ TARGET_DYNAMIC_64_32_DRMSERVER := true
 TARGET_BOOTLOADER_BOARD_NAME := fire
 TARGET_NO_BOOTLOADER := true
 
-# Boot Image
-BOARD_KERNEL_BASE := 0x40078000
-BOARD_KERNEL_OFFSET := 0x00008000
-BOARD_KERNEL_PAGESIZE := 2048
-BOARD_KERNEL_TAGS_OFFSET := 0x0bc08000
-BOARD_RAMDISK_OFFSET := 0x07c08000
-BOARD_DTB_OFFSET := 0x0bc08000
-
-BOARD_BOOTIMG_HEADER_VERSION := 2
-BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+# Boot image / GKI
+BOARD_BOOT_HEADER_VERSION := 3
+BOARD_BOOTIMG_HEADER_VERSION := $(BOARD_BOOT_HEADER_VERSION)
+BOARD_USES_GENERIC_KERNEL_IMAGE := true
+BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
+BOARD_KERNEL_PAGESIZE := 4096
+BOARD_INCLUDE_DTB_IN_BOOTIMG := false
 
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2
-BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
-
-BOARD_MKBOOTIMG_ARGS := --base $(BOARD_KERNEL_BASE)
-BOARD_MKBOOTIMG_ARGS += --kernel_offset $(BOARD_KERNEL_OFFSET)
-BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
-BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
-BOARD_MKBOOTIMG_ARGS += --dtb_offset $(BOARD_DTB_OFFSET)
-BOARD_MKBOOTIMG_ARGS += --pagesize $(BOARD_KERNEL_PAGESIZE)
-BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
-BOARD_MKBOOTIMG_ARGS += --board ""
+BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 
 # Display
 TARGET_SCREEN_DENSITY := 440
@@ -83,8 +75,9 @@ TARGET_SCREEN_DENSITY := 440
 # DTBO
 BOARD_KERNEL_SEPARATED_DTBO := true
 
-# HIDL
-DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
+# VINTF
+# HOS2 vendor carries the stock device-manifest fragments. Do not overlay the
+# legacy Android 14 monolithic device manifest during the initial bring-up.
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     hardware/mediatek/vintf/mediatek_framework_compatibility_matrix.xml \
     hardware/xiaomi/vintf/xiaomi_framework_compatibility_matrix.xml
@@ -99,18 +92,27 @@ ODM_MANIFEST_SKUS += \
 ODM_MANIFEST_HCESIM_FILES := $(DEVICE_PATH)/manifest_hcesim.xml
 
 # Partitions
-BOARD_FLASH_BLOCK_SIZE := 131072                  	# 2048     * 64   (pagesize)
-BOARD_BOOTIMAGE_PARTITION_SIZE := 134217728        	# 131072   * 1024 (sdc27)
-BOARD_DTBOIMG_PARTITION_SIZE := 8388608             # 8192     * 1024 (sdc29)
-BOARD_SUPER_PARTITION_SIZE := 9130336256  	        # 8916344  * 1024 (sdc57)
+BOARD_FLASH_BLOCK_SIZE := 131072                  # 4096 * 32
+BOARD_BOOTIMAGE_PARTITION_SIZE := 134217728
+BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 67108864
+BOARD_DTBOIMG_PARTITION_SIZE := 8388608
+BOARD_SUPER_PARTITION_SIZE := 9130336256
 BOARD_USES_METADATA_PARTITION := true
 
 # Partitions (Dynamic)
 BOARD_SUPER_PARTITION_GROUPS := mediatek_dynamic_partitions
-BOARD_MEDIATEK_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext vendor product
+BOARD_MEDIATEK_DYNAMIC_PARTITIONS_PARTITION_LIST := \
+    system \
+    system_ext \
+    product \
+    vendor \
+    system_dlkm \
+    vendor_dlkm \
+    odm_dlkm \
+    mi_ext
 BOARD_MEDIATEK_DYNAMIC_PARTITIONS_SIZE := 9126141952 # BOARD_SUPER_PARTITION_SIZE - 4MB
 -include vendor/lineage/config/BoardConfigReservedSize.mk
- 
+
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -119,6 +121,9 @@ BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := erofs
 TARGET_COPY_OUT_PRODUCT := product
 TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 TARGET_COPY_OUT_VENDOR := vendor
+TARGET_COPY_OUT_SYSTEM_DLKM := system_dlkm
+TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
+TARGET_COPY_OUT_ODM_DLKM := odm_dlkm
 
 # Platform
 TARGET_BOARD_PLATFORM := mt6768
