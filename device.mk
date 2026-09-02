@@ -102,6 +102,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_BUILD_SUPER_PARTITION := false
 
+# HOS2 vendor_boot is supplied as a stock-compatible prebuilt. Header v3 would
+# otherwise make build/core rebuild vendor_boot and discard the stock ramdisk.
+PRODUCT_BUILD_VENDOR_BOOT_IMAGE := false
+
 PRODUCT_PACKAGES += \
     fastbootd
 
@@ -268,7 +272,8 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/sku/,$(TARGET_COPY_OUT_VENDOR))
 
 # Shipping API level
-PRODUCT_SHIPPING_API_LEVEL := 30
+# Redmi 12 launched on Android 13, so its vendor compatibility level is API 33.
+PRODUCT_SHIPPING_API_LEVEL := 33
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
