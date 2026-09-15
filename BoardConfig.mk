@@ -4,8 +4,8 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/xiaomi/sea
-KERNEL_PATH := device/xiaomi/sea-prebuilt
+DEVICE_PATH := device/xiaomi/fire
+KERNEL_PATH := device/xiaomi/fire-kernel
 
 BUILD_BROKEN_DUP_RULES := true
 
@@ -37,18 +37,18 @@ AB_OTA_PARTITIONS := \
 
 # Architecture
 TARGET_ARCH := arm64
-TARGET_ARCH_VARIANT := armv8-a
+TARGET_ARCH_VARIANT := armv8-2a-dotprod
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 := 
 TARGET_CPU_VARIANT := generic
-TARGET_CPU_VARIANT_RUNTIME := cortex-a53
+TARGET_CPU_VARIANT_RUNTIME := cortex-a75
 
 TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv7-a-neon
+TARGET_2ND_ARCH_VARIANT := armv8-2a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
-TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a53
+TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55
 
 # Boot Image (Offsets)
 BOARD_KERNEL_BASE := 0x40078000
@@ -78,11 +78,11 @@ BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 67108864
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 rcupdate.rcu_expedited=1 rcu_nocbs=all rcutree.enable_rcu_lazy log_buf_len=1024K sysctl.kernel.sched_pelt_multiplier=4 androidboot.serialconsole=0
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := sea
+TARGET_BOOTLOADER_BOARD_NAME := fire
 TARGET_NO_BOOTLOADER := true
 
 # OTA
-TARGET_OTA_ASSERT_DEVICE := sea,ocean
+TARGET_OTA_ASSERT_DEVICE := fire
 
 # Display
 TARGET_SCREEN_DENSITY := 440
@@ -115,14 +115,14 @@ BOOT_KERNEL_MODULES := $(BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD) $(BO
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
-BOARD_SUPER_PARTITION_SIZE := 7516192768
+BOARD_SUPER_PARTITION_SIZE := 9130336256
 BOARD_DTBOIMG_PARTITION_SIZE := 8388608
-BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
+BOARD_BOOTIMAGE_PARTITION_SIZE := 134217728
 
 # Partitions (Dynamic)
 BOARD_SUPER_PARTITION_GROUPS := mediatek_dynamic_partitions
 BOARD_MEDIATEK_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor vendor_dlkm system_dlkm odm_dlkm
-BOARD_MEDIATEK_DYNAMIC_PARTITIONS_SIZE := 7511998464
+BOARD_MEDIATEK_DYNAMIC_PARTITIONS_SIZE := 9126141952
 
 -include vendor/lineage/config/BoardConfigReservedSize.mk
 
@@ -144,7 +144,7 @@ TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
 BOARD_USES_METADATA_PARTITION := true
 
 # Platform
-TARGET_BOARD_PLATFORM := mt6781
+TARGET_BOARD_PLATFORM := mt6768
 
 # Properties
 TARGET_ODM_PROP += $(DEVICE_PATH)/configs/props/odm.prop
@@ -154,7 +154,7 @@ TARGET_PRODUCT_PROP += $(DEVICE_PATH)/configs/props/product.prop
 TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/configs/props/system_ext.prop
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.mt6781
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.mt6768
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
@@ -233,4 +233,4 @@ WIFI_HIDL_FEATURE_AWARE := true
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 
 # Inherit the proprietary files
-include vendor/xiaomi/sea/BoardConfigVendor.mk
+include vendor/xiaomi/fire/BoardConfigVendor.mk
