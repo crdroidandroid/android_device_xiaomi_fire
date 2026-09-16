@@ -234,3 +234,12 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 
 # Inherit the proprietary files
 include vendor/xiaomi/fire/BoardConfigVendor.mk
+
+# The extracted vendor config may carry a legacy fire-prebuilt path.
+# Fire's HOS2 kernel and DT images are supplied by fire-kernel.
+KERNEL_PATH := device/xiaomi/fire-kernel
+TARGET_FORCE_PREBUILT_KERNEL := true
+TARGET_PREBUILT_KERNEL := $(KERNEL_PATH)/kernel
+TARGET_PREBUILT_DTB := $(KERNEL_PATH)/dtb.img
+BOARD_PREBUILT_DTBOIMAGE := $(KERNEL_PATH)/dtbo.img
+
