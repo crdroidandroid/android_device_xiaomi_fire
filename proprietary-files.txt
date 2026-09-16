@@ -932,6 +932,8 @@ vendor/lib64/lib3a.af.assist.so
 vendor/lib64/lib3a.af.assist.utils.so
 vendor/lib64/lib3a.af.core.so
 vendor/lib64/lib3a.awb.core.so
+vendor/lib/lib3a.awb.so
+vendor/lib64/lib3a.awb.so
 vendor/lib64/lib3a.dce.so
 vendor/lib64/lib3a.flash.so
 vendor/lib64/lib3a.gma.so
