@@ -1753,6 +1753,8 @@ vendor/lib64/vendor.mediatek.hardware.pq@2.7.so
 vendor/lib64/vendor.mediatek.hardware.pq@2.8.so
 vendor/lib64/vendor.mediatek.hardware.pq@2.9.so
 vendor/lib64/vendor.mediatek.hardware.pq_aidl-V4-ndk.so
+vendor/lib/vendor.mediatek.hardware.pq_aidl-V3-ndk.so
+vendor/lib64/vendor.mediatek.hardware.pq_aidl-V3-ndk.so
 vendor/lib64/vendor.mediatek.hardware.pq_aidl-V7-ndk.so
 #y vendor/lib64/vendor.xiaomi.hardware.displayfeature@1.0.so
 
