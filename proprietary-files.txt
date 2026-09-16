@@ -3129,6 +3129,10 @@ vendor/lib64/libperfctl_vendor.so
 #y vendor/lib64/libpowerhal.so
 vendor/lib64/libpowerhalwrap_vendor.so
 vendor/lib64/libpq_cust_base.so
+vendor/lib/mt6768/libdpframework.so;SYMLINK=vendor/lib/libdpframework.so
+vendor/lib/mt6768/libpq_sec.so;SYMLINK=vendor/lib/libpq_sec.so
+vendor/lib64/mt6768/libdpframework.so;SYMLINK=vendor/lib64/libdpframework.so
+vendor/lib64/mt6768/libpq_sec.so;SYMLINK=vendor/lib64/libpq_sec.so
 vendor/lib64/librcs_volte_core.so
 vendor/lib64/librgbwlightsensor.so
 vendor/lib64/librt_extamp_intf.so
