@@ -26,6 +26,50 @@ from extract_utils.utils import (
     run_cmd,
 )
 
+from pathlib import Path
+import sys
+
+
+def prune_manifest(manifest: Path, source: Path) -> None:
+    """Keep only blob entries that physically exist in the supplied dump."""
+    original = manifest.read_text().splitlines(keepends=True)
+    kept: list[str] = []
+    removed = 0
+
+    for line in original:
+        stripped = line.strip()
+        if not stripped or stripped.startswith('#'):
+            kept.append(line)
+            continue
+
+        # The source path is before an optional destination (:) or attributes (;).
+        source_path = stripped.lstrip('-').split(';', 1)[0].split(':', 1)[0]
+        if (source / source_path).exists():
+            kept.append(line)
+        else:
+            removed += 1
+
+    manifest.write_text(''.join(kept))
+    print(f'Pruned {removed} missing entries from {manifest}')
+
+
+def prune_manifests_from_args() -> None:
+    if '--prune' not in sys.argv:
+        return
+
+    sys.argv.remove('--prune')
+    source_arg = next((arg for arg in reversed(sys.argv[1:]) if not arg.startswith('-')), None)
+    if source_arg is None:
+        raise SystemExit('--prune requires a dump directory')
+
+    source = Path(source_arg)
+    if not source.is_dir():
+        raise SystemExit(f'Not a dump directory: {source}')
+
+    device_dir = Path(__file__).resolve().parent
+    for manifest_name in ('proprietary-files.txt', 'proprietary-firmware.txt'):
+        prune_manifest(device_dir / manifest_name, source)
+
 namespace_imports = [
 	'device/xiaomi/fire',
 	'hardware/mediatek',
@@ -155,5 +199,6 @@ module = ExtractUtilsModule(
 )
 
 if __name__ == '__main__':
+    prune_manifests_from_args()
     utils = ExtractUtils.device(module)
     utils.run()
