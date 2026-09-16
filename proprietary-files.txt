@@ -2945,6 +2945,10 @@ vendor/lib64/libcam.hal3a.v3.ae.so
 vendor/lib64/libcam.hal3a.v3.ai3a.so
 vendor/lib64/libcam.hal3a.v3.awb.so
 vendor/lib64/libcam.hal3a.v3.dng.so
+vendor/lib/libcam.hal3a.v3.nvram.so
+vendor/lib/libcam.hal3a.v3.lsctbl.so
+vendor/lib64/libcam.hal3a.v3.nvram.so
+vendor/lib64/libcam.hal3a.v3.lsctbl.so
 vendor/lib64/libcam.hal3a.v3.fsmgr.so
 vendor/lib64/libcam.hal3a.v3.lscMgr.so
 vendor/lib64/libcam.hal3a.v3.lsctbl.50.so
