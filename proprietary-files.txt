@@ -3149,6 +3149,8 @@ vendor/lib64/libmtkcam_hal_aidl_utils.so
 vendor/lib64/libmtkcam_hwnode.so
 vendor/lib64/libmtkcam_metastore.so
 vendor/lib64/libmtkcam_modulefactory_aaa.so
+vendor/lib64/libcam.lcs.so
+vendor/lib64/libabfadp.so
 vendor/lib64/libmtkcam_modulefactory_custom.so
 vendor/lib64/libmtkcam_modulefactory_drv.so
 vendor/lib64/libmtkcam_modulefactory_utils.so
