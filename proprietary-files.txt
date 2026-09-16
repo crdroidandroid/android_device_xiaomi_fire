@@ -1448,6 +1448,46 @@ vendor/lib64/libcameracustom.camera.3a.so
 vendor/lib64/libcameracustom.camera.isp.so
 vendor/lib64/libcameracustom.lens.so
 vendor/lib64/libcameracustom.so
+vendor/lib/imx355_sunny_mipi_raw_tuning.so
+vendor/lib/ov02b10_truly_mipi_raw_tuning.so
+vendor/lib/ov50d40_truly_mipi_raw_tuning.so
+vendor/lib/ov8856_ofilm_mipi_raw_tuning.so
+vendor/lib/ov8856_sunny_mipi_raw_tuning.so
+vendor/lib/s5kjns_sunny_mipi_raw_tuning.so
+vendor/lib/sc202cs_sunny_mipi_raw_tuning.so
+vendor/lib/sc820cs_truly_mipi_raw_tuning.so
+vendor/lib64/imx355_sunny_mipi_raw_IdxMgr.so
+vendor/lib64/imx355_sunny_mipi_raw_india_IdxMgr.so
+vendor/lib64/imx355_sunny_mipi_raw_india_tuning.so
+vendor/lib64/imx355_sunny_mipi_raw_tuning.so
+vendor/lib64/ov02b10_truly_mipi_raw_IdxMgr.so
+vendor/lib64/ov02b10_truly_mipi_raw_india_IdxMgr.so
+vendor/lib64/ov02b10_truly_mipi_raw_india_tuning.so
+vendor/lib64/ov02b10_truly_mipi_raw_tuning.so
+vendor/lib64/ov50d40_truly_mipi_raw_IdxMgr.so
+vendor/lib64/ov50d40_truly_mipi_raw_india_IdxMgr.so
+vendor/lib64/ov50d40_truly_mipi_raw_india_tuning.so
+vendor/lib64/ov50d40_truly_mipi_raw_tuning.so
+vendor/lib64/ov8856_ofilm_mipi_raw_IdxMgr.so
+vendor/lib64/ov8856_ofilm_mipi_raw_india_IdxMgr.so
+vendor/lib64/ov8856_ofilm_mipi_raw_india_tuning.so
+vendor/lib64/ov8856_ofilm_mipi_raw_tuning.so
+vendor/lib64/ov8856_sunny_mipi_raw_IdxMgr.so
+vendor/lib64/ov8856_sunny_mipi_raw_india_IdxMgr.so
+vendor/lib64/ov8856_sunny_mipi_raw_india_tuning.so
+vendor/lib64/ov8856_sunny_mipi_raw_tuning.so
+vendor/lib64/s5kjns_sunny_mipi_raw_IdxMgr.so
+vendor/lib64/s5kjns_sunny_mipi_raw_india_IdxMgr.so
+vendor/lib64/s5kjns_sunny_mipi_raw_india_tuning.so
+vendor/lib64/s5kjns_sunny_mipi_raw_tuning.so
+vendor/lib64/sc202cs_sunny_mipi_raw_IdxMgr.so
+vendor/lib64/sc202cs_sunny_mipi_raw_india_IdxMgr.so
+vendor/lib64/sc202cs_sunny_mipi_raw_india_tuning.so
+vendor/lib64/sc202cs_sunny_mipi_raw_tuning.so
+vendor/lib64/sc820cs_truly_mipi_raw_IdxMgr.so
+vendor/lib64/sc820cs_truly_mipi_raw_india_IdxMgr.so
+vendor/lib64/sc820cs_truly_mipi_raw_india_tuning.so
+vendor/lib64/sc820cs_truly_mipi_raw_tuning.so
 vendor/lib64/libchromanr.so
 vendor/lib64/libdip_drv.so
 vendor/lib64/libdip_postproc.so
@@ -2855,7 +2895,7 @@ vendor/lib64/hw/vendor.mediatek.hardware.nvram-impl.so
 #y vendor/lib64/hw/vendor.xiaomi.hardware.misys@2.0-impl.so
 #y vendor/lib64/hw/vendor.xiaomi.hardware.misys@3.0-impl.so
 #y vendor/lib64/hw/vendor.xiaomi.hardware.misys@4.0-impl.so
-vendor/lib64/mt6781/libmmagent.so;SYMLINK=vendor/lib64/libmmagent.so
+vendor/lib64/mt6768/libmmagent.so;SYMLINK=vendor/lib64/libmmagent.so
 vendor/lib64/mt6781/libmmlpqImpl.so;SYMLINK=vendor/lib64/libmmlpqImpl.so
 vendor/lib64/mt6781/libneuron_adapter_mgvi.so;SYMLINK=vendor/lib64/libneuron_adapter_mgvi.so
 vendor/lib64/mt6781/libnir_neon_driver.so;SYMLINK=vendor/lib64/libnir_neon_driver.so
