@@ -325,7 +325,7 @@ vendor/lib64/libmtk_bsg.so
 vendor/lib/hw/vendor.mediatek.hardware.camera.postproc@1.0-impl.so
 vendor/lib/mt6781/libdpframework.so;SYMLINK=vendor/lib/libdpframework.so
 vendor/lib/mt6768/libmml.so;SYMLINK=vendor/lib/libmml.so
-vendor/lib/mt6781/libmtk_drvb.so;SYMLINK=vendor/lib/libmtk_drvb.so
+vendor/lib/mt6768/libmtk_drvb.so;SYMLINK=vendor/lib/libmtk_drvb.so
 vendor/lib/mt6781/libpq_sec.so;SYMLINK=vendor/lib/libpq_sec.so
 vendor/lib/gc02m1_macro_aac_mipi_raw_IdxMgr.so
 vendor/lib/gc02m1_macro_aac_mipi_raw_tuning.so
@@ -914,7 +914,7 @@ vendor/lib/vendor.mediatek.hardware.pq_aidl-V2-ndk.so
 vendor/lib64/hw/vendor.mediatek.hardware.camera.postproc@1.0-impl.so
 vendor/lib64/mt6781/libdpframework.so;SYMLINK=vendor/lib64/libdpframework.so
 vendor/lib64/mt6768/libmml.so;SYMLINK=vendor/lib64/libmml.so
-vendor/lib64/mt6781/libmtk_drvb.so;SYMLINK=vendor/lib64/libmtk_drvb.so
+vendor/lib64/mt6768/libmtk_drvb.so;SYMLINK=vendor/lib64/libmtk_drvb.so
 vendor/lib64/mt6781/libpq_sec.so;SYMLINK=vendor/lib64/libpq_sec.so
 vendor/lib64/gc02m1_macro_aac_mipi_raw_IdxMgr.so
 vendor/lib64/gc02m1_macro_aac_mipi_raw_tuning.so
