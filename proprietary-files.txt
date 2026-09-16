@@ -1687,7 +1687,7 @@ vendor/lib/hw/gralloc.default.so
 vendor/lib/hw/vendor.mediatek.hardware.pq_aidl-impl.so
 vendor/lib/hw/vendor.xiaomi.hardware.displayfeature@1.0-impl.so
 vendor/lib/hw/vulkan.mali.so
-vendor/lib/mt6781/libpqparamparser.so;SYMLINK=vendor/lib/libpqparamparser.so
+vendor/lib/mt6768/libpqparamparser.so;SYMLINK=vendor/lib/libpqparamparser.so
 vendor/lib/libDefaultFpsActor.so
 vendor/lib/libFrameRecord.so
 vendor/lib/libMiDispDevManager.so
@@ -1748,7 +1748,7 @@ vendor/lib64/hw/hwcomposer.mt6781.so:vendor/lib64/hw/hwcomposer.mtk_common.so;FI
 vendor/lib64/hw/vendor.mediatek.hardware.pq_aidl-impl.so
 vendor/lib64/hw/vendor.xiaomi.hardware.displayfeature@1.0-impl.so
 vendor/lib64/hw/vulkan.mali.so
-vendor/lib64/mt6781/libpqparamparser.so;SYMLINK=vendor/lib64/libpqparamparser.so
+vendor/lib64/mt6768/libpqparamparser.so;SYMLINK=vendor/lib64/libpqparamparser.so
 vendor/lib64/libDefaultFpsActor.so
 vendor/lib64/libFrameRecord.so
 vendor/lib64/libMiDispDevManager.so
@@ -3118,6 +3118,12 @@ vendor/lib64/libmtkcam.featurepipe.streaming.so
 vendor/lib64/libmtkcam.featurepipe.vsdof_util.so
 vendor/lib64/libmtkcam_3rdparty.core.so
 vendor/lib64/libmtkcam_3rdparty.customer.so
+vendor/lib64/hq_algoutils.so
+vendor/lib64/libaltek_ldc_preview.so
+vendor/lib64/libarcsoft_fbpre.so
+vendor/lib64/libcamalgo.flicker.so
+vendor/lib64/libmi_bokehpre.so
+vendor/lib64/libmtkcam_dpe.so
 vendor/lib64/libmtkcam_3rdparty.mtk.so
 vendor/lib64/libmtkcam_3rdparty.so
 vendor/lib64/libmtkcam_calibration_convertor.so
