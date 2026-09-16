@@ -324,7 +324,7 @@ vendor/lib64/libmtk_bsg.so
 #y system_ext/lib64/vendor.mediatek.hardware.camera.isphal@1.0.so
 vendor/lib/hw/vendor.mediatek.hardware.camera.postproc@1.0-impl.so
 vendor/lib/mt6781/libdpframework.so;SYMLINK=vendor/lib/libdpframework.so
-vendor/lib/mt6781/libmml.so;SYMLINK=vendor/lib/libmml.so
+vendor/lib/mt6768/libmml.so;SYMLINK=vendor/lib/libmml.so
 vendor/lib/mt6781/libmtk_drvb.so;SYMLINK=vendor/lib/libmtk_drvb.so
 vendor/lib/mt6781/libpq_sec.so;SYMLINK=vendor/lib/libpq_sec.so
 vendor/lib/gc02m1_macro_aac_mipi_raw_IdxMgr.so
@@ -868,7 +868,7 @@ vendor/lib/libion_ulit.so
 vendor/lib/libjpeg-alpha-oal_vendor.so
 vendor/lib/libjpeg-alpha_vendor.so
 vendor/lib/libmfllcore.so
-#y vendor/lib/libmml.so
+vendor/lib/libmml.so
 #y vendor/lib/libmtk_drvb.so
 vendor/lib/libmtkcam.atmseventmgr.so
 vendor/lib/libmtkcam.debugwrapper.so
@@ -913,7 +913,7 @@ vendor/lib/vendor.mediatek.hardware.camera.postproc@1.0.so
 vendor/lib/vendor.mediatek.hardware.pq_aidl-V2-ndk.so
 vendor/lib64/hw/vendor.mediatek.hardware.camera.postproc@1.0-impl.so
 vendor/lib64/mt6781/libdpframework.so;SYMLINK=vendor/lib64/libdpframework.so
-vendor/lib64/mt6781/libmml.so;SYMLINK=vendor/lib64/libmml.so
+vendor/lib64/mt6768/libmml.so;SYMLINK=vendor/lib64/libmml.so
 vendor/lib64/mt6781/libmtk_drvb.so;SYMLINK=vendor/lib64/libmtk_drvb.so
 vendor/lib64/mt6781/libpq_sec.so;SYMLINK=vendor/lib64/libpq_sec.so
 vendor/lib64/gc02m1_macro_aac_mipi_raw_IdxMgr.so
@@ -1464,7 +1464,7 @@ vendor/lib64/libion_ulit.so
 vendor/lib64/libjpeg-alpha-oal_vendor.so
 vendor/lib64/libjpeg-alpha_vendor.so
 vendor/lib64/libmfllcore.so
-#y vendor/lib64/libmml.so
+vendor/lib64/libmml.so
 vendor/lib64/libmpbase.so
 #y vendor/lib64/libmtk_drvb.so
 vendor/lib64/libmtkcam.atmseventmgr.so
