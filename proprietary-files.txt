@@ -3123,6 +3123,10 @@ vendor/lib64/libaltek_ldc_preview.so
 vendor/lib64/libarcsoft_fbpre.so
 vendor/lib64/libcamalgo.flicker.so
 vendor/lib64/libmi_bokehpre.so
+vendor/lib64/libmiphone_preview_bokeh.so
+vendor/lib64/libmialgo_aio_seg.so
+vendor/lib64/libmialgo_ai_vision.so
+vendor/lib64/libMNN.so
 vendor/lib64/libmtkcam_dpe.so
 vendor/lib64/libmtkcam_3rdparty.mtk.so
 vendor/lib64/libmtkcam_3rdparty.so
