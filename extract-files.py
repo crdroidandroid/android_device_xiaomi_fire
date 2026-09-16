@@ -27,7 +27,7 @@ from extract_utils.utils import (
 )
 
 namespace_imports = [
-	'device/xiaomi/sea',
+	'device/xiaomi/fire',
 	'hardware/mediatek',
 	'hardware/xiaomi',
     'hardware/mediatek/libmtkperf_client',
@@ -146,7 +146,7 @@ blob_fixups: blob_fixups_user_type = {
 }
 
 module = ExtractUtilsModule(
-    'sea',
+    'fire',
     'xiaomi',
     blob_fixups=blob_fixups,
     lib_fixups=lib_fixups,
