@@ -266,9 +266,9 @@ vendor/etc/audio_param/Volume_ParamUnitDesc.xml
 vendor/etc/smartpa_param/fsmsdg_params.bin
 
 # Bluetooth
-# vendor/bin/hw/android.hardware.bluetooth-service-mediatek
-# vendor/etc/init/android.hardware.bluetooth-service-mediatek.rc
-# vendor/etc/vintf/manifest/android.hardware.bluetooth-service-mediatek.xml
+vendor/bin/hw/android.hardware.bluetooth-service-mediatek
+vendor/etc/init/android.hardware.bluetooth-service-mediatek.rc
+vendor/etc/vintf/manifest/android.hardware.bluetooth-service-mediatek.xml
 vendor/lib/libbluetooth_mtk.so
 vendor/lib/libbt-vendor.so
 vendor/lib/libnvram.so

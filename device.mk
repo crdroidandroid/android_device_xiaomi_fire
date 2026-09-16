@@ -238,9 +238,7 @@ TARGET_EXCLUDES_AUDIOFX := true
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
 
-# Bluetooth
-PRODUCT_PACKAGES += \
-    android.hardware.bluetooth-service.mediatek
+# Bluetooth is provided by the stock vendor implementation.
 
 PRODUCT_PACKAGES += \
     audio.primary.default \
@@ -248,8 +246,6 @@ PRODUCT_PACKAGES += \
     audio_policy.stub \
     audio.usb.default
 
-PRODUCT_PACKAGES += \
-    audio.bluetooth.default
 
 PRODUCT_PACKAGES += \
     libaecsw \
@@ -334,4 +330,4 @@ PRODUCT_PACKAGES += \
     libwifi-hal-wrapper
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/xiaomi/sea/sea-vendor.mk)
+$(call inherit-product, vendor/xiaomi/fire/fire-vendor.mk)
