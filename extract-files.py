@@ -193,3 +193,31 @@ if __name__ == '__main__':
     prune_manifests_from_args()
     utils = ExtractUtils.device(module)
     utils.run()
+
+    from pathlib import Path
+
+    android_mk = (
+        Path(__file__).resolve().parents[3]
+        / "vendor/xiaomi/fire/Android.mk"
+    )
+    radio_call = (
+        "$(call add-radio-file-sha1-checked,radio/md1img.img,"
+        "7c5f95d34be6d6e7a6dd704b18f4f9618492f036)"
+    )
+    override_marker = "# fire: repack md1img with the built vendor_boot"
+    override = f"""
+
+{override_marker}
+FIRE_MD1IMG_STOCK := $(LOCAL_PATH)/radio/md1img.img
+FIRE_MD1IMG_PACKER := device/xiaomi/fire/tools/pack_md1img.sh
+FIRE_MD1IMG_OUTPUT := $(PRODUCT_OUT)/md1img.img
+
+$(FIRE_MD1IMG_OUTPUT): $(FIRE_MD1IMG_STOCK) $(PRODUCT_OUT)/vendor_boot.img $(FIRE_MD1IMG_PACKER)
+	$(hide) $(FIRE_MD1IMG_PACKER) $(FIRE_MD1IMG_STOCK) $(PRODUCT_OUT)/vendor_boot.img $@
+"""
+
+    contents = android_mk.read_text()
+    if override_marker not in contents:
+        if radio_call not in contents:
+            raise RuntimeError(f"Cannot find md1img radio rule in {android_mk}")
+        android_mk.write_text(contents.replace(radio_call, radio_call + override, 1))
