@@ -87,8 +87,8 @@ PRODUCT_PACKAGES += \
     init.connectivity.common.rc \
     init.connectivity.rc \
     init.modem.rc \
-    init.mt6781.rc \
-    init.mt6781.usb.rc \
+    init.mt6768.rc \
+    init.mt6768.usb.rc \
     init.mtkgki.rc \
     init.project.rc \
     init.sensor_1_0.rc \
@@ -100,9 +100,9 @@ PRODUCT_PACKAGES += \
     meta_init.project.rc \
     meta_init.rc \
     meta_init.vendor.rc \
-    init.recovery.mt6781.rc \
-    fstab.mt6781 \
-    fstab.mt6781.vendor_ramdisk
+    init.recovery.mt6768.rc \
+    fstab.mt6768 \
+    fstab.mt6768.vendor_ramdisk
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.mt6768:$(TARGET_VENDOR_RAMDISK_OUT)/first_stage_ramdisk/fstab.mt6768
