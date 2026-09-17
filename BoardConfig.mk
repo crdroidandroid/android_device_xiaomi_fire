@@ -243,3 +243,8 @@ TARGET_PREBUILT_KERNEL := $(KERNEL_PATH)/kernel
 TARGET_PREBUILT_DTB := $(KERNEL_PATH)/dtb.img
 BOARD_PREBUILT_DTBOIMAGE := $(KERNEL_PATH)/dtbo.img
 
+
+# Use Fire's stock init.mt6768.usb.rc instead of the generic MediaTek one.
+SOONG_CONFIG_NAMESPACES += mediatek_gadget
+SOONG_CONFIG_mediatek_gadget += use_custom_usb_gadget_rc
+SOONG_CONFIG_mediatek_gadget_use_custom_usb_gadget_rc := true
