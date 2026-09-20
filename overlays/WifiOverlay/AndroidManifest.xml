@@ -5,7 +5,7 @@
   SPDX-License-Identifier: Apache-2.0
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.android.wifi.resources.overlay.sea">
+          package="com.android.wifi.resources.overlay.fire">
     <overlay android:targetPackage="com.android.wifi.resources"
              android:targetName="WifiCustomization"
              android:isStatic="true"

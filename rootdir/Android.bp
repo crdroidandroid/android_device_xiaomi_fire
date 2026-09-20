@@ -124,9 +124,9 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "init.stnfc.rc",
-    src: "etc/init.stnfc.rc",
-    sub_dir: "init/hw",
+    name: "init.vnd_fire.nfc.rc",
+    src: "etc/init.vnd_fire.nfc.rc",
+    sub_dir: "init",
     vendor: true,
 }
 

@@ -92,7 +92,7 @@ PRODUCT_PACKAGES += \
     init.mtkgki.rc \
     init.project.rc \
     init.sensor_1_0.rc \
-    init.stnfc.rc \
+    init.vnd_fire.nfc.rc \
     init_connectivity.rc \
     meta_init.connectivity.common.rc \
     meta_init.connectivity.rc \
@@ -155,11 +155,11 @@ PRODUCT_PACKAGES += \
     libbase_shim
 
 PRODUCT_PACKAGES += \
-    FrameworksOverlaySea \
+    FrameworksOverlayFire \
     TetheringConfigOverlay \
-    SettingsOverlaySea \
-    SystemUIOverlaySea \
-    WifiOverlaySea
+    SettingsOverlayFire \
+    SystemUIOverlayFire \
+    WifiOverlayFire
 
 PRODUCT_PACKAGES += \
     NcmTetheringOverlay
@@ -280,8 +280,7 @@ PRODUCT_PACKAGES += \
 
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb-service.mediatek \
-    android.hardware.usb.gadget-service.mediatek
+    android.hardware.usb-service.mediatek
 
 # Health
 PRODUCT_PACKAGES += \
@@ -316,7 +315,6 @@ PRODUCT_PACKAGES += \
 
 # NFC
 PRODUCT_PACKAGES += \
-    android.hardware.nfc-service.st \
     com.android.nfc_extras \
     Tag
 

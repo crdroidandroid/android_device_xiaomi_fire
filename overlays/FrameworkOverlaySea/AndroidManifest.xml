@@ -5,7 +5,7 @@
   SPDX-License-Identifier: Apache-2.0
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="android.overlay.sea">
+          package="android.overlay.fire">
     <overlay android:targetPackage="android"
              android:isStatic="true"
              android:priority="100" />

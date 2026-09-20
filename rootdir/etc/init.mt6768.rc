@@ -10,9 +10,19 @@ import ${ro.vendor.rc}init.volte.rc
 import ${ro.vendor.rc}init.mal.rc
 import ${ro.vendor.rc}init.sensor_1_0.rc
 import ${ro.vendor.rc}init.ago.rc
-import /vendor/etc/init/hw/init.stnfc.rc
-import /system/etc/init/hw/init.stnfc.rc
 import ${ro.vendor.rc}init.cgroup.rc
+
+
+on post-fs-data
+    mkdir /metadata 0770 root system
+    start fire-init-logger
+
+service fire-init-logger /system/bin/logcat -b all -v threadtime -f /metadata/fire-init.log -r 4096 -n 8
+    class late_start
+    user root
+    group root log readproc
+    seclabel u:r:init:s0
+
 
 # init.modem.rc must be the LAST rc file because vold.post_fs_data_done is set in it
 import ${ro.vendor.rc}init.modem.rc
