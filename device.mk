@@ -100,11 +100,11 @@ PRODUCT_PACKAGES += \
     meta_init.project.rc \
     meta_init.rc \
     meta_init.vendor.rc \
-    fstab.mt6768 \
-    fstab.mt6768.vendor_ramdisk
+    fstab.mt6768
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.mt6768:$(TARGET_VENDOR_RAMDISK_OUT)/first_stage_ramdisk/fstab.mt6768
+    $(LOCAL_PATH)/rootdir/etc/fstab.mt6768:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.mt6768 \
+    $(LOCAL_PATH)/rootdir/etc/init.recovery.mt6768.rc:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/init.recovery.mt6768.rc
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
@@ -135,8 +135,8 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # DTB
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)-prebuilt/dtb.img:dtb.img \
-    $(LOCAL_PATH)-prebuilt/kernel:kernel
+    $(LOCAL_PATH)-kernel/dtb.img:dtb.img \
+    $(LOCAL_PATH)-kernel/kernel:kernel
 
 # Fingerprint
 PRODUCT_PACKAGES += \
