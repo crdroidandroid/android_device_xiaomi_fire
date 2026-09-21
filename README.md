@@ -1,8 +1,8 @@
-# Android device tree for Redmi Note 12S (codename: sea)
+# Android device tree for Redmi 12 (codename: fire)
 
-```
+```text
 #
-# Copyright (C) 2026 YgorBRxx The LineageOS Project
+# Copyright (C) 2026 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -10,14 +10,15 @@
 
 # Device specifications
 
-|                   Basic | Spec Sheet                                                         |
-| ----------------------: | :----------------------------------------------------------------- |
-|                     SoC | MediaTek® Helio G96 (MT6781)                                       |
-|                     CPU | Octa-core CPU with 2x Cortex-A76 & 6x Cortex-A55                   |
-|                     GPU | Mali-G57 MC2                                                       |
-|                  Memory | 6/8 RAM (LPDDR4X)                                                  |
-| Shipped Android Version | 13 with MIUI 14                                                    |
-|                 Storage | 64/128/256 (UFS 2.2)                                               |
-|                 Battery | 5000 mAh, non-removable                                            |
-|                 Display | 1080 x 2400 pixels, 20:9 ratio, 6.43 inches, 60/90 Hz, AMOLED      |
-|                  Camera | 108MP/64MP (Primary), 8MP (Ultra-wide), 2MP (Macro)                |
+| Basic | Specification |
+| :-- | :-- |
+| SoC | MediaTek Helio G88 (MT6769H / MT6768 family) |
+| CPU | Octa-core: 2× Cortex-A75 + 6× Cortex-A55 |
+| GPU | Mali-G52 MC2 |
+| Memory | 4 / 6 / 8 GB LPDDR4X |
+| Storage | 128 / 256 GB eMMC 5.1 |
+| Shipped Android version | Android 13 with MIUI 14 |
+| Battery | 5000 mAh, non-removable |
+| Display | 1080 × 2460, 6.79-inch, 90 Hz IPS LCD |
+| Rear cameras | 50 MP wide + 8 MP ultra-wide + 2 MP macro |
+| Front camera | 8 MP |
