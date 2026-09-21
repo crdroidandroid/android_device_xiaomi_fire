@@ -109,16 +109,6 @@
         <version>2</version>
         <fqname>ISoundTriggerHw/default</fqname>
     </hal>
-    <hal format="hidl">
-        <name>interfaces.factoryAta</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.0::IFactoryAta/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>interfaces.factoryInterface</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.0::IFactoryInterface/default</fqname>
-    </hal>
     <hal format="aidl">
         <name>vendor.mediatek.hardware.aee</name>
         <fqname>IAee/AEE</fqname>
