@@ -247,8 +247,5 @@
         <name>vendor.mediatek.hardware.videotelephony</name>
         <fqname>IVideoTelephony/default</fqname>
     </hal>
-    <sepolicy>
-        <version>202404</version>
-    </sepolicy>
     <kernel target-level="6"/>
 </manifest>
