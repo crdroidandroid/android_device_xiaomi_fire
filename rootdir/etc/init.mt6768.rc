@@ -191,17 +191,12 @@ on post-fs
     restorecon /mnt/rescue
     restorecon_recursive /mnt/rescue
 
-    # Запуск логгера (разделы смонтированы, скрипт доступен)
-    mkdir /mnt/rescue/recovery 0775 system system
-    start fire-init-logger
-
 on late-fs
     write /proc/bootprof "INIT:late-fs"
     setprop init.userspace_reboot.userdata_remount.timeoutmillis 10000
     write /proc/bootprof "INIT:Mount_START --late"
     write /sys/kernel/tracing/trace_marker "B|1|Mount late"
     mount_all /vendor/etc/fstab.mt6768 --late
-    # tune2fs закомментирован для f2fs userdata:
     # exec /system/bin/tune2fs -O has_journal -u 10010 -r 4096 /dev/block/platform/bootdevice/by-name/userdata
     write /sys/kernel/tracing/trace_marker "E"
     write /proc/bootprof "INIT:Mount_END --late"
@@ -1002,13 +997,6 @@ on property:vendor.charge.mishow.ctl=false
 
 on property:persist.vendor.battery.mishow=true
     setprop vendor.charge.mishow.ctl true
-
-service fire-init-logger /system/bin/sh /vendor/bin/fire-init-logger.sh
-    class core
-    user root
-    group root system log readproc
-    seclabel u:r:init:s0
-    oneshot
 
 # Fallback AIDL effect factory for HOS2 audio blobs.
 service vendor.audio-effect-hal-aidl /vendor/bin/hw/android.hardware.audio.effect.service-aidl.example
