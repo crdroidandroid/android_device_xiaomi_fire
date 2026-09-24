@@ -43,7 +43,12 @@ def prune_manifest(manifest: Path, source: Path) -> None:
             continue
 
         # The source path is before an optional destination (:) or attributes (;).
-        source_path = stripped.lstrip('-').split(';', 1)[0].split(':', 1)[0]
+        source_path = (
+            stripped.lstrip('-')
+            .split(';', 1)[0]
+            .split('|', 1)[0]
+            .split(':', 1)[0]
+        )
         if (source / source_path).exists():
             kept.append(line)
         else:
@@ -69,6 +74,36 @@ def prune_manifests_from_args() -> None:
     device_dir = Path(__file__).resolve().parent
     for manifest_name in ('proprietary-files.txt', 'proprietary-firmware.txt'):
         prune_manifest(device_dir / manifest_name, source)
+
+def patch_pq_blob() -> None:
+    """Apply the known HOS2 PQ crash workaround after extraction."""
+    blob = (
+        Path(__file__).resolve().parents[3]
+        / 'vendor/xiaomi/fire/proprietary/vendor/lib64/hw'
+        / 'vendor.mediatek.hardware.pq_aidl-impl.so'
+    )
+    if not blob.exists():
+        print(f'PQ blob not extracted: {blob}')
+        return
+
+    offset = 359648
+    raw = bytes.fromhex('ff 83 06 d1 e8 9b 00 fd')
+    patched = bytes.fromhex('00 00 80 52 c0 03 5f d6')
+
+    data = bytearray(blob.read_bytes())
+    actual = bytes(data[offset:offset + len(raw)])
+
+    if actual == raw:
+        data[offset:offset + len(patched)] = patched
+        blob.write_bytes(data)
+        print('Applied PQ HAL crash workaround')
+    elif actual == patched:
+        print('PQ HAL crash workaround already applied')
+    else:
+        raise RuntimeError(
+            f'Unexpected PQ bytes at {offset}: {actual.hex(" ")}'
+        )
+
 
 namespace_imports = [
 	'device/xiaomi/fire',
@@ -114,12 +149,12 @@ blob_fixups: blob_fixups_user_type = {
     ): blob_fixup()
         .replace_needed('android.hardware.graphics.common-V5-ndk.so', 'android.hardware.graphics.common-V7-ndk.so'),
 
-    (
-        'vendor/lib64/hw/vendor.mediatek.hardware.pq_aidl-impl.so',
-        'vendor/lib/hw/vendor.mediatek.hardware.pq_aidl-impl.so',
-        'vendor/lib64/hw/audio.primary.mt6781.so',
-        'vendor/lib/hw/audio.primary.mt6781.so'
-    ): blob_fixup(),
+    # HOS2 PQ crashes in loadPqparamTable(), stalling HWC/SF at ~2 FPS.
+    ('vendor/lib64/hw/vendor.mediatek.hardware.pq_aidl-impl.so'): blob_fixup()
+        .binary_regex_replace(
+            b'\xff\x83\x06\xd1\xe8\x9b\x00\xfd',
+            b'\x00\x00\x80\x52\xc0\x03\x5f\xd6',
+        ),
 
     ('vendor/bin/hw/android.hardware.audio.service-aidl.mediatek'): blob_fixup()
         .replace_needed('libaudio_aidl_conversion_common_ndk.so', 'libaudio_aidl_conversion_common_ndk_prebuilt.so'),
@@ -197,31 +232,4 @@ if __name__ == '__main__':
     prune_manifests_from_args()
     utils = ExtractUtils.device(module)
     utils.run()
-
-    from pathlib import Path
-
-    android_mk = (
-        Path(__file__).resolve().parents[3]
-        / "vendor/xiaomi/fire/Android.mk"
-    )
-    radio_call = (
-        "$(call add-radio-file-sha1-checked,radio/md1img.img,"
-        "7c5f95d34be6d6e7a6dd704b18f4f9618492f036)"
-    )
-    override_marker = "# fire: repack md1img with the built vendor_boot"
-    override = f"""
-
-{override_marker}
-FIRE_MD1IMG_STOCK := $(LOCAL_PATH)/radio/md1img.img
-FIRE_MD1IMG_PACKER := device/xiaomi/fire/tools/pack_md1img.sh
-FIRE_MD1IMG_OUTPUT := $(PRODUCT_OUT)/md1img.img
-
-$(FIRE_MD1IMG_OUTPUT): $(FIRE_MD1IMG_STOCK) $(PRODUCT_OUT)/vendor_boot.img $(FIRE_MD1IMG_PACKER)
-	$(hide) $(FIRE_MD1IMG_PACKER) $(FIRE_MD1IMG_STOCK) $(PRODUCT_OUT)/vendor_boot.img $@
-"""
-
-    contents = android_mk.read_text()
-    if override_marker not in contents:
-        if radio_call not in contents:
-            raise RuntimeError(f"Cannot find md1img radio rule in {android_mk}")
-        android_mk.write_text(contents.replace(radio_call, radio_call + override, 1))
+    patch_pq_blob()

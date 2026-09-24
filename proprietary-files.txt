@@ -10,7 +10,7 @@ vendor/etc/init/android.hardware.audio.service-aidl.mediatek.rc|1298008f4e08b6c7
 vendor/etc/vintf/manifest/android.hardware.audio.effect.service-aidl.xml|23a35e805568569988ddad64843e5aa87e6af7b4
 vendor/etc/vintf/manifest/android.hardware.audio.service-aidl.xml:vendor/etc/vintf/manifest/android.hardware.audio.service-aidl.mediatek.xml|dfeead0fe267bb6e14a3467f34b1e78a0f671a40
 vendor/lib/hw/audio.primary.default.so|1626dd4fe1ae8c1008b8d79f2363896b11f7644e
-vendor/lib/hw/audio.primary.mt6768.so|c995f323e67b3ef7bd395a0a6e48b31512c0888a|546576bf010b63d94216997a7197c4afa40a609f
+vendor/lib/hw/audio.primary.mt6768.so;DISABLE_CHECKELF|c995f323e67b3ef7bd395a0a6e48b31512c0888a|546576bf010b63d94216997a7197c4afa40a609f
 # vendor/lib/hw/audio.r_submix.default.so
 vendor/lib/hw/audio.usb.default.so|1e52d731cf955c5c8896df507babf69814f6a793
 vendor/lib/hw/vendor.mediatek.hardware.audio-impl.so|bec68336a6c379be4e87c96a4b3fc7e29a09ffcb
@@ -30,7 +30,7 @@ vendor/lib/libladder.so|02a66f62747a06ffc79c22d788b52a7804e7fd42
 #y vendor/lib/server_configurable_flags.so
 vendor/lib/vendor.mediatek.hardware.audio-V1-ndk.so|8fdac96f43ac54792294b0e47a7d5b84aa474d21
 vendor/lib64/hw/audio.primary.default.so|25764919c71cd1dd68432c232e0297627010a6c8
-vendor/lib64/hw/audio.primary.mt6768.so|733a5ea2092f266470282bccc30543019166b844|5939e4eab01b69448c14350fe723a5b7c6382cde
+vendor/lib64/hw/audio.primary.mt6768.so;DISABLE_CHECKELF|733a5ea2092f266470282bccc30543019166b844|5939e4eab01b69448c14350fe723a5b7c6382cde
 # vendor/lib64/hw/audio.r_submix.default.so
 vendor/lib64/hw/audio.usb.default.so|3df5d2960b7196f3789374a5300f7f4a9905b0b0
 vendor/lib64/hw/vendor.mediatek.hardware.audio-impl.so|62c67fbfc68711e3e408d1ea7a33f595aeb7e87b
@@ -556,7 +556,7 @@ vendor/lib/egl/libMEOW_qt.so|4d8c4bec788e31898075a7b445c1be128be55540
 vendor/lib/egl/libMEOW_trace.so|daca066fabea823ccda3cf0156a50a6871947602
 vendor/lib/hw/displayfeature.default.so|fc1b59321e39a59a02573f89f8da5e299f403e9f
 vendor/lib/hw/gralloc.default.so|3e77e1655395a7807389d06011458f86b1a142c6
-vendor/lib/hw/vendor.mediatek.hardware.pq_aidl-impl.so|c5a3dbefbb11c74e8c3a62058a0619120f4a1083|c5a3dbefbb11c74e8c3a62058a0619120f4a1083
+vendor/lib/hw/vendor.mediatek.hardware.pq_aidl-impl.so|c5a3dbefbb11c74e8c3a62058a0619120f4a1083
 vendor/lib/hw/vulkan.mali.so|9aaaf1e98b41bb8ac1368bf9dec33e29a2292444
 vendor/lib/mt6768/libpqparamparser.so;SYMLINK=vendor/lib/libpqparamparser.so|8a94355926be2212d00c089e344472c43f526408
 vendor/lib/libDefaultFpsActor.so|896729b4e063af2f5e916117aed0513153db519b
@@ -2504,6 +2504,20 @@ vendor/etc/audio_param_cust/audio_param_in/VolumeGainMap_AudioParam.xml|8bb84158
 vendor/etc/audio_param_cust/audio_param_in/VolumeGainMap_ParamUnitDesc.xml|7c361b68f0b106e3473e5d1700b7cad9063f7cc4
 vendor/etc/audio_param_cust/audio_param_in/Volume_AudioParam.xml|e8e468ccbc9e29706920981491cffdbb66f16502
 vendor/etc/audio_param_cust/audio_param_in/Volume_ParamUnitDesc.xml|996e81f5cce1e67bed9c91c3d8ad3b7d28b89922
-vendor/lib/libxml2.so:vendor/lib/libxml2-vendor.so|df305d4851dab9ce07598eb4049a601e5f308a8d
-vendor/lib64/libxml2.so:vendor/lib64/libxml2-vendor.so|04c2e6a7626074d9bcd36b247c74b22726f93620
+vendor/lib/libxml2.so:vendor/lib/libxml2-vendor.so;DISABLE_CHECKELF|df305d4851dab9ce07598eb4049a601e5f308a8d
+vendor/lib64/libxml2.so:vendor/lib64/libxml2-vendor.so;DISABLE_CHECKELF|04c2e6a7626074d9bcd36b247c74b22726f93620
+vendor/firmware/WIFI_RAM_CODE_soc1_0_1a_1.bin|921fa92f6008d2558f288802bf26ba3d5ac3618d
 vendor/firmware/focaltech_8725_2_fw.bin|8ade62df378d48a2d2899daaa6725b8b6560f665
+vendor/firmware/focaltech_8725_fw.bin|8cb7f95c77e2883dc7a36a07a88d9f508c277005
+vendor/firmware/focaltech_ts_fw_.bin|674bacba83a4a4ee96a34c11434473d59aec66e9
+vendor/firmware/fs1801.fsm|3097d8da55df98466c36a08cb3491233fccce0e5
+vendor/firmware/novatek_ts_fw.bin|40f8aa6c449aed6b0558e4e8cef69c681c6ab379
+vendor/firmware/novatek_ts_mp.bin|0754e520eab30da3fd0c11abe2d200f0a797e400
+vendor/firmware/sipa.bin|1f7bcd63a418c07589046257282eb5c09cab45a8
+vendor/firmware/soc1_0_patch_mcu_1a_1_hdr.bin|f9b804a5015b8b6698eb5389a4d9f824a49118a4
+vendor/firmware/soc1_0_ram_bt_1a_1_hdr.bin|e29b74fe4effb174de5ab1160d8de24f30afcf0b
+vendor/firmware/soc1_0_ram_mcu_1a_1_hdr.bin|c427a10e912a1a8de51f40b811a433c1e6cbd0bb
+vendor/firmware/soc1_0_ram_wifi_1a_1_hdr.bin|46740f6853ae26d4d007586f77cb168875cb5a5a
+vendor/firmware/txpowerctrl.cfg|030b347ff4138c5f1e5b19fe8516e66af8c89246
+vendor/firmware/txpowerctrl_IN.cfg|3dbea0a0108ffedd580d6172d23dfef8ec662042
+vendor/firmware/wifi.cfg|e6e60b6626f854430bd49e9fc2c48fb7fda2c4df
