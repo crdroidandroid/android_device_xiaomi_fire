@@ -10,7 +10,7 @@ vendor/etc/init/android.hardware.audio.service-aidl.mediatek.rc|1298008f4e08b6c7
 vendor/etc/vintf/manifest/android.hardware.audio.effect.service-aidl.xml|23a35e805568569988ddad64843e5aa87e6af7b4
 vendor/etc/vintf/manifest/android.hardware.audio.service-aidl.xml:vendor/etc/vintf/manifest/android.hardware.audio.service-aidl.mediatek.xml|dfeead0fe267bb6e14a3467f34b1e78a0f671a40
 vendor/lib/hw/audio.primary.default.so|1626dd4fe1ae8c1008b8d79f2363896b11f7644e
-vendor/lib/hw/audio.primary.mt6768.so;DISABLE_CHECKELF|c995f323e67b3ef7bd395a0a6e48b31512c0888a|546576bf010b63d94216997a7197c4afa40a609f
+vendor/lib/hw/audio.primary.mt6768.so;DISABLE_CHECKELF|c995f323e67b3ef7bd395a0a6e48b31512c0888a|3525a924f72175daf4965fbd15eb179b54668f56
 # vendor/lib/hw/audio.r_submix.default.so
 vendor/lib/hw/audio.usb.default.so|1e52d731cf955c5c8896df507babf69814f6a793
 vendor/lib/hw/vendor.mediatek.hardware.audio-impl.so|bec68336a6c379be4e87c96a4b3fc7e29a09ffcb
@@ -30,7 +30,7 @@ vendor/lib/libladder.so|02a66f62747a06ffc79c22d788b52a7804e7fd42
 #y vendor/lib/server_configurable_flags.so
 vendor/lib/vendor.mediatek.hardware.audio-V1-ndk.so|8fdac96f43ac54792294b0e47a7d5b84aa474d21
 vendor/lib64/hw/audio.primary.default.so|25764919c71cd1dd68432c232e0297627010a6c8
-vendor/lib64/hw/audio.primary.mt6768.so;DISABLE_CHECKELF|733a5ea2092f266470282bccc30543019166b844|5939e4eab01b69448c14350fe723a5b7c6382cde
+vendor/lib64/hw/audio.primary.mt6768.so;DISABLE_CHECKELF|733a5ea2092f266470282bccc30543019166b844|efd11cac2d7559faffb51f561a7cca614b9e0f21
 # vendor/lib64/hw/audio.r_submix.default.so
 vendor/lib64/hw/audio.usb.default.so|3df5d2960b7196f3789374a5300f7f4a9905b0b0
 vendor/lib64/hw/vendor.mediatek.hardware.audio-impl.so|62c67fbfc68711e3e408d1ea7a33f595aeb7e87b
@@ -612,7 +612,7 @@ vendor/lib64/egl/libMEOW_trace.so|99c7ed22639e0822f89aae29fd0b5b490cdfd42f
 vendor/lib64/hw/displayfeature.default.so|aedcbe8caae1bc20d589925a7c37dc1eb13cf514
 vendor/lib64/hw/gralloc.default.so|73085333afdee173f0b4b2b1e938b0a70d814e4f
 vendor/lib64/hw/hwcomposer.mt6768.so|9ee29bee6c36a211273431c6c73c3d03b51ab19a
-vendor/lib64/hw/vendor.mediatek.hardware.pq_aidl-impl.so|a83af977ddde7f785048120600a425d78f8bbfa5|a83af977ddde7f785048120600a425d78f8bbfa5
+vendor/lib64/hw/vendor.mediatek.hardware.pq_aidl-impl.so|a83af977ddde7f785048120600a425d78f8bbfa5|a2bba5b4d4d5c81fb21175f9a31927da82824806
 vendor/lib64/hw/vulkan.mali.so|f317d4781c8090287cfb3d0de3ecff4521210b01
 vendor/lib64/mt6768/libpqparamparser.so;SYMLINK=vendor/lib64/libpqparamparser.so|b56f7d65f2228dbda9792ef32c310b943080d1c5
 vendor/lib64/libDefaultFpsActor.so|4127c155f58adf97340a98a160f98f5f2dbf1502
@@ -2017,8 +2017,8 @@ vendor/lib64/hw/android.hardware.sensors@2.X-subhal-mediatek.so|850a2d2ae3c4e84f
 vendor/lib64/hw/android.hardware.camera.provider@2.6-impl-mediatek.so|734a1d4c0acf83db422d0923ae8f17942c4a78cc
 vendor/lib/libmisight.so|cf527ba16a52a800602e2ff9aa9d29c5199e6eea
 vendor/lib64/libmisight.so|36c70861a2f703a289f8eded1f85de68540e6bce
-vendor/lib/hw/android.hardware.audio.effect.aidl-impl-mediatek.so|59e867683c394f4ba7ff2353df4e2e552add9c6d|59e867683c394f4ba7ff2353df4e2e552add9c6d
-vendor/lib64/hw/android.hardware.audio.effect.aidl-impl-mediatek.so|4984a727b3153e88af443675afebcd4df5cff370|4984a727b3153e88af443675afebcd4df5cff370
+vendor/lib/hw/android.hardware.audio.effect.aidl-impl-mediatek.so|59e867683c394f4ba7ff2353df4e2e552add9c6d|8b0ce378189d5761fce04d85c123a6956866cc99
+vendor/lib64/hw/android.hardware.audio.effect.aidl-impl-mediatek.so|4984a727b3153e88af443675afebcd4df5cff370|9d9927f7d699c79ae050d0f9fb76796d4dd07959
 vendor/lib/hw/android.hardware.graphics.allocator-V2-mediatek.so|1a8fde384283b604c85bd695c218307be0b53c53|f65aba98fb47eca8953368a32148f884817cb184
 vendor/lib64/hw/android.hardware.graphics.allocator-V2-mediatek.so|c4e5d6ea1c8bb4ec162eccca28d2e6c2d89856da|7664dacec5832a38daf3cb2ec64cc877e6f326f9
 vendor/lib/android.hardware.bluetooth.audio-impl-mediatek.so|f312260c1d66b6456ca30eb127651fcef5e8ba68
@@ -2521,3 +2521,20 @@ vendor/firmware/soc1_0_ram_wifi_1a_1_hdr.bin|46740f6853ae26d4d007586f77cb168875c
 vendor/firmware/txpowerctrl.cfg|030b347ff4138c5f1e5b19fe8516e66af8c89246
 vendor/firmware/txpowerctrl_IN.cfg|3dbea0a0108ffedd580d6172d23dfef8ec662042
 vendor/firmware/wifi.cfg|e6e60b6626f854430bd49e9fc2c48fb7fda2c4df
+vendor/lib/libtinyalsa.so:vendor/lib/libtinyalsa-hos2.so;DISABLE_CHECKELF|9889ce151638f49561c27ac40d7ae7fa103c5392
+vendor/lib64/libtinyalsa.so:vendor/lib64/libtinyalsa-hos2.so;DISABLE_CHECKELF|930e3ff3066fba35d21ab4f70d2d23d2fa43cd45
+
+vendor/lib/libtinyxml2.so:vendor/lib/libtinyxml2-hos2.so;DISABLE_CHECKELF|7287fd4a225db6ba15421aae28b24ed625313f54
+vendor/lib64/libtinyxml2.so:vendor/lib64/libtinyxml2-hos2.so;DISABLE_CHECKELF|c48c23b42e7f7a7d26b6f4594dbdf8e3b6ee3184
+
+vendor/etc/audio_param/AudioParamOptions.xml:vendor/etc/audio_param_cust/audio_param_ato/AudioParamOptions.xml|8b67f14c6ffc5082aed89a5c66cb7671bc9b5adc
+vendor/etc/audio_param/AudioParamOptions_vext.xml:vendor/etc/audio_param_cust/audio_param_ato/AudioParamOptions_vext.xml|fa6ffcf6986545edd028b700dce69b5f4d8cf56f
+vendor/etc/audio_param/AudioParamOptions.xml:vendor/etc/audio_param_cust/audio_param_default/AudioParamOptions.xml|8b67f14c6ffc5082aed89a5c66cb7671bc9b5adc
+vendor/etc/audio_param/AudioParamOptions_vext.xml:vendor/etc/audio_param_cust/audio_param_default/AudioParamOptions_vext.xml|fa6ffcf6986545edd028b700dce69b5f4d8cf56f
+vendor/etc/audio_param/AudioParamOptions.xml:vendor/etc/audio_param_cust/audio_param_global/AudioParamOptions.xml|8b67f14c6ffc5082aed89a5c66cb7671bc9b5adc
+vendor/etc/audio_param/AudioParamOptions_vext.xml:vendor/etc/audio_param_cust/audio_param_global/AudioParamOptions_vext.xml|fa6ffcf6986545edd028b700dce69b5f4d8cf56f
+vendor/etc/audio_param/AudioParamOptions.xml:vendor/etc/audio_param_cust/audio_param_in/AudioParamOptions.xml|8b67f14c6ffc5082aed89a5c66cb7671bc9b5adc
+vendor/etc/audio_param/AudioParamOptions_vext.xml:vendor/etc/audio_param_cust/audio_param_in/AudioParamOptions_vext.xml|fa6ffcf6986545edd028b700dce69b5f4d8cf56f
+
+vendor/lib/soundfx/libmisoundfx_aidl.so;DISABLE_CHECKELF|8c0b0a2abd4f74060407b7ef7399dc86c5a4590a|d564abc958dfc31c3016e0486ad10b402a65e7e2
+vendor/lib64/soundfx/libmisoundfx_aidl.so;DISABLE_CHECKELF|5d463fa2ecbd8e8f952bcec34908bf120295b69f|902a6ef80a9fcce0e5ac86c8010ea4f0587eea8b

@@ -119,6 +119,25 @@ lib_fixups: lib_fixups_user_type = {
     **lib_fixups
 }
 
+import subprocess
+
+def fix_hos2_tinyxml2_sonames():
+    top = Path(__file__).resolve().parents[3]
+    patchelf = top / 'prebuilts/extract-tools/linux-x86/bin/patchelf-0_18'
+    proprietary = top / 'vendor/xiaomi/fire/proprietary/vendor'
+
+    for relative in (
+        'lib/libtinyxml2-hos2.so',
+        'lib64/libtinyxml2-hos2.so',
+    ):
+        blob = proprietary / relative
+        if not blob.is_file():
+            raise FileNotFoundError(blob)
+        subprocess.run(
+            [str(patchelf), '--set-soname', 'libtinyxml2-hos2.so', str(blob)],
+            check=True,
+        )
+
 blob_fixups: blob_fixups_user_type = {
     ('vendor/lib64/libaalservice.so', 'vendor/lib64/libcam.utils.sensorprovider.so'): blob_fixup()
         .replace_needed('libsensorndkbridge.so', 'android.hardware.sensors@1.0-convert-shared.so'),
@@ -163,11 +182,15 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib/hw/audio.primary.mt6768.so',
         'vendor/lib64/hw/audio.primary.mt6768.so',
     ): blob_fixup()
-        .replace_needed('libxml2.so', 'libxml2-vendor.so'),
+        .replace_needed('libxml2.so', 'libxml2-vendor.so')
+        .replace_needed('libtinyalsa.so', 'libtinyalsa-hos2.so')
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-hos2.so'),
 
     ('vendor/lib/hw/android.hardware.audio.effect.aidl-impl-mediatek.so', 'vendor/lib64/hw/android.hardware.audio.effect.aidl-impl-mediatek.so'): blob_fixup()
         .replace_needed('android.media.audio.common.types-V5-ndk.so', 'android.media.audio.common.types-V3-ndk.so')
-        .replace_needed('libxml2.so', 'libxml2-vendor.so'),
+        .replace_needed('libxml2.so', 'libxml2-vendor.so')
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-hos2.so')
+        .replace_needed('libtinyalsa.so', 'libtinyalsa-hos2.so'),
     
     ('vendor/lib/android.hardware.audio.core-impl-mediatek.so', 'vendor/lib64/android.hardware.audio.core-impl-mediatek.so'): blob_fixup()
         .add_needed('libaudioutils_shim.so')
@@ -176,6 +199,16 @@ blob_fixups: blob_fixups_user_type = {
     ('vendor/lib/libaudio_aidl_conversion_common_ndk_prebuilt.so', 'vendor/lib64/libaudio_aidl_conversion_common_ndk_prebuilt.so'): blob_fixup()
         .replace_needed('android.media.audio.common.types-V5-ndk.so', 'android.media.audio.common.types-V3-ndk.so'),
     
+    (
+        'vendor/lib/soundfx/libmisoundfx_aidl.so',
+        'vendor/lib64/soundfx/libmisoundfx_aidl.so',
+    ): blob_fixup()
+        .replace_needed(
+            'libaudio_aidl_conversion_common_ndk.so',
+            'libaudio_aidl_conversion_common_ndk_prebuilt.so',
+        )
+        .replace_needed('libxml2.so', 'libxml2-vendor.so'),
+
     ('vendor/lib/hw/android.hardware.soundtrigger3-impl.so', 'vendor/lib64/hw/android.hardware.soundtrigger3-impl.so'): blob_fixup()
         .replace_needed('libaudio_aidl_conversion_common_ndk.so', 'libaudio_aidl_conversion_common_ndk_prebuilt.so'),
 
@@ -232,4 +265,5 @@ if __name__ == '__main__':
     prune_manifests_from_args()
     utils = ExtractUtils.device(module)
     utils.run()
+    fix_hos2_tinyxml2_sonames()
     patch_pq_blob()
