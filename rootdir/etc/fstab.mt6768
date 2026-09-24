@@ -17,14 +17,6 @@ vendor /vendor ext4 ro wait,slotselect,avb,logical,first_stage_mount
 
 product /product erofs ro wait,slotselect,avb,logical,first_stage_mount
 product /product ext4 ro wait,slotselect,avb,logical,first_stage_mount
-mi_ext /mnt/vendor/mi_ext erofs ro wait,slotselect,avb=vbmeta,logical,first_stage_mount,nofail
-/mnt/vendor/mi_ext /mi_ext erofs ro,bind wait,nofail
-overlay /system/framework overlay ro,lowerdir=/product/pangu/system/framework/:/system/framework check,nofail
-
-
-
-
-
 
 vendor_dlkm /vendor_dlkm erofs ro wait,slotselect,avb,logical,first_stage_mount
 vendor_dlkm /vendor_dlkm ext4 ro wait,slotselect,avb,logical,first_stage_mount
@@ -41,11 +33,7 @@ system_dlkm /system_dlkm ext4 ro wait,slotselect,avb,logical,first_stage_mount
 
 /dev/block/by-name/md_udc /metadata ext4 noatime,nosuid,nodev,discard wait,check,formattable,first_stage_mount
 
-
-
-
-/dev/block/by-name/userdata /data f2fs noatime,nosuid,nodev,discard,noflush_merge,fsync_mode=nobarrier,reserve_root=134217,resgid=1065,inlinecrypt wait,check,formattable,quota,latemount,readahead_size_kb=128,reservedsize=128m,checkpoint=fs,fileencryption=aes-256-xts:aes-256-cts:v2,keydirectory=/metadata/vold/metadata_encryption
-
+/dev/block/by-name/userdata /data f2fs noatime,nosuid,nodev,discard,noflush_merge,fsync_mode=nobarrier,reserve_root=134217,resgid=1065,inlinecrypt wait,check,formattable,quota,latemount,readahead_size_kb=128,reservedsize=128m,checkpoint=fs,fileencryption=aes-256-xts:aes-256-cts:v2
 
 
 /dev/block/by-name/rescue /cache ext4 noatime,nosuid,nodev,noauto_da_alloc,discard wait,check,formattable

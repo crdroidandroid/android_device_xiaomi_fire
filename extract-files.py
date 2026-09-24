@@ -119,15 +119,20 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib/hw/vendor.mediatek.hardware.pq_aidl-impl.so',
         'vendor/lib64/hw/audio.primary.mt6781.so',
         'vendor/lib/hw/audio.primary.mt6781.so'
-    ): blob_fixup()
-        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
+    ): blob_fixup(),
 
     ('vendor/bin/hw/android.hardware.audio.service-aidl.mediatek'): blob_fixup()
         .replace_needed('libaudio_aidl_conversion_common_ndk.so', 'libaudio_aidl_conversion_common_ndk_prebuilt.so'),
     
+    (
+        'vendor/lib/hw/audio.primary.mt6768.so',
+        'vendor/lib64/hw/audio.primary.mt6768.so',
+    ): blob_fixup()
+        .replace_needed('libxml2.so', 'libxml2-vendor.so'),
+
     ('vendor/lib/hw/android.hardware.audio.effect.aidl-impl-mediatek.so', 'vendor/lib64/hw/android.hardware.audio.effect.aidl-impl-mediatek.so'): blob_fixup()
         .replace_needed('android.media.audio.common.types-V5-ndk.so', 'android.media.audio.common.types-V3-ndk.so')
-        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
+        .replace_needed('libxml2.so', 'libxml2-vendor.so'),
     
     ('vendor/lib/android.hardware.audio.core-impl-mediatek.so', 'vendor/lib64/android.hardware.audio.core-impl-mediatek.so'): blob_fixup()
         .add_needed('libaudioutils_shim.so')
@@ -146,8 +151,7 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('android.hardware.camera.common-V2-ndk.so', 'android.hardware.camera.common-V1-ndk.so'),
 
     ('vendor/lib64/hw/hwcomposer.mtk_common.so'): blob_fixup()
-        .add_needed('libprocessgroup_shim.so')
-        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
+        .add_needed('libprocessgroup_shim.so'),
 
     ('vendor/lib/libteei_daemon_vfs.so', 'vendor/lib64/libteei_daemon_vfs.so'): blob_fixup()
         .add_needed('liblog.so'),

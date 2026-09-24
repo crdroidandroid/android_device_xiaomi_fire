@@ -25,6 +25,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 # leave less information available via JDWP.
 PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 
+PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
+
 # A/B
 PRODUCT_PACKAGES += \
     com.android.hardware.boot \
@@ -105,6 +107,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.mt6768:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.mt6768 \
     $(LOCAL_PATH)/rootdir/etc/init.recovery.mt6768.rc:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/init.recovery.mt6768.rc
+
+PRODUCT_COPY_FILES += \
+    device/xiaomi/fire/rootdir/etc/fire-init-logger.sh:$(TARGET_COPY_OUT_VENDOR)/bin/fire-init-logger.sh
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
@@ -301,13 +306,12 @@ $(call soong_config_set,power_libperfmgr,mode_extension_lib, //$(DEVICE_PATH):li
 
 # Sensors
 PRODUCT_PACKAGES += \
-    android.hardware.sensors-service.xiaomi-multihal \
     android.hardware.sensors@2.0-subhal-impl-1.0 \
     sensors.dynamic_sensor_hal
 
 # Thermal
 PRODUCT_PACKAGES += \
-    android.hardware.thermal-service.mediatek \
+    android.hardware.thermal-service.example \
     thermal_symlinks_mediatek
 
 PRODUCT_PACKAGES += \
@@ -326,5 +330,23 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     libwifi-hal-wrapper
 
+
 # Inherit the proprietary files
+PRODUCT_COPY_FILES += \
+    vendor/xiaomi/fire/proprietary/vendor/etc/init/init.wlan_drv.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.wlan_drv.rc
+
 $(call inherit-product, vendor/xiaomi/fire/fire-vendor.mk)
+
+
+PRODUCT_PACKAGES += android.hardware.audio.effect.service-aidl.example
+
+PRODUCT_PACKAGES += android.hardware.thermal-service.example
+
+PRODUCT_PACKAGES += android.hardware.thermal.example.rc
+
+
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,vendor/xiaomi/fire/proprietary/vendor/firmware,$(TARGET_COPY_OUT_VENDOR)/firmware)
+
+# HOS2 camera tuning, scenario definitions and models
+PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,vendor/xiaomi/fire/proprietary/vendor/etc/camera,$(TARGET_COPY_OUT_VENDOR)/etc/camera)
