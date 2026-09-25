@@ -1237,8 +1237,8 @@ vendor/bin/rttv|35c5b1067f88fdd7a11db0ca75caccc6f49be87d
 # vendor/bin/stroke
 vendor/bin/teei_daemon|6ff2d58b9a2fc53013692a6b73e9e1d5b8c39936
 # vendor/bin/thermal
-# vendor/bin/thermal_manager
-# vendor/bin/thermalloadalgod
+vendor/bin/thermal_manager
+vendor/bin/thermalloadalgod
 # vendor/bin/trusty-ut-ctrl
 vendor/bin/v3avpud|71fbb22786cd0fb30a5f6d76c0331efdcb58b0a7
 vendor/bin/volte_clientapi_ua|bf22d48875f1af7ff0cb484aea126ac1236885dc
@@ -1298,7 +1298,7 @@ vendor/etc/init/init.gps_drv.rc|37989279b79db8a5d910249c257744aa9efc4589
 vendor/etc/init/init.md_apps.rc|4eba4275df7baedf587bc5b73b371980c3e9276b
 # vendor/etc/init/init.thermal.rc
 # vendor/etc/init/init.thermal_manager.rc
-# vendor/etc/init/init.thermalloadalgod.rc
+vendor/etc/init/init.thermalloadalgod.rc
 vendor/etc/init/init.touch.rc|518888ce37bdf37d4df8d7fde7837af60a6c32f6
 vendor/etc/init/init.volte_imcb.rc|2b7e2e2f7aaf3ca710caf0523c93a817d95ef253
 vendor/etc/init/init.volte_imsm_93.rc|6f1e96e82ac18fdf0acc6791ab8db3a6519ca605

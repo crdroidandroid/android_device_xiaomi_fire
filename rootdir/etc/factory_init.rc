@@ -712,6 +712,7 @@ service adbd /apex/com.android.adbd/bin/adbd --root_seclabel=u:r:su:s0
 # Please add custom service below
 
 service thermal_manager /vendor/bin/thermal_manager
+    class main
     user root
 	group system
     oneshot
