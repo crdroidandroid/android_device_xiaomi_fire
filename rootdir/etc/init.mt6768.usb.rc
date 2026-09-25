@@ -214,18 +214,24 @@ on property:dev.bootcomplete=1
 on property:sys.usb.config=mtp,adb && property:vendor.usb.acm_cnt=0 && \
 property:sys.usb.configfs=1
     setprop vendor.usb.pid 0xFF48
+
 on property:sys.usb.config=mtp,adb && property:vendor.usb.acm_cnt=1 && \
 property:sys.usb.configfs=1
     setprop vendor.usb.pid 0x200A
     setprop vendor.usb.acm_port1 ""
+
 on property:sys.usb.config=mtp,adb && property:vendor.usb.acm_cnt=2 && \
 property:sys.usb.configfs=1
     setprop vendor.usb.pid 0x2026
 
 on property:sys.usb.ffs.ready=1 && property:sys.usb.config=mtp,adb && \
-property:vendor.usb.acm_enable=1 && property:sys.usb.configfs=1 && \
-property:vendor.usb.ffs.mtp.ready=1
+property:vendor.usb.acm_enable=1 && property:sys.usb.configfs=1
     write /config/usb_gadget/g1/configs/b.1/strings/0x409/configuration "mtp_adb_acm"
+    rm /config/usb_gadget/g1/configs/b.1/f1
+    rm /config/usb_gadget/g1/configs/b.1/f2
+    rm /config/usb_gadget/g1/configs/b.1/f3
+    rm /config/usb_gadget/g1/configs/b.1/f4
+    rm /config/usb_gadget/g1/configs/b.1/f5
     write /config/usb_gadget/g1/idProduct ${vendor.usb.pid}
     write /config/usb_gadget/g1/os_desc/use 1
     write /sys/devices/platform/mt_usb/saving 1
@@ -237,9 +243,13 @@ property:vendor.usb.ffs.mtp.ready=1
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.ffs.ready=1 && property:sys.usb.config=mtp,adb && \
-property:vendor.usb.acm_enable=0 && property:sys.usb.configfs=1 && \
-property:vendor.usb.ffs.mtp.ready=1
+property:vendor.usb.acm_enable=0 && property:sys.usb.configfs=1
     write /config/usb_gadget/g1/configs/b.1/strings/0x409/configuration "mtp_adb"
+    rm /config/usb_gadget/g1/configs/b.1/f1
+    rm /config/usb_gadget/g1/configs/b.1/f2
+    rm /config/usb_gadget/g1/configs/b.1/f3
+    rm /config/usb_gadget/g1/configs/b.1/f4
+    rm /config/usb_gadget/g1/configs/b.1/f5
     write /config/usb_gadget/g1/idProduct ${vendor.usb.pid}
     write /config/usb_gadget/g1/os_desc/use 1
     symlink /config/usb_gadget/g1/functions/ffs.mtp /config/usb_gadget/g1/configs/b.1/f1
