@@ -1039,8 +1039,8 @@ vendor/etc/init/android.hardware.secure_element@1.2-service-mediatek.rc|0c6f07a2
 vendor/lib64/vendor.mediatek.hardware.mtkradioex.sim-V1-ndk.so|498b2fae6f5f921f608839de8e5b7ce1faf5f599
 
 # Sensors
-vendor/bin/hw/android.hardware.sensors-service.multihal|91def1d1d0a95028928a3a2077837fe429156527
-vendor/etc/init/android.hardware.sensors-service-multihal.rc|b3f1924a0090f8c2f5bf3cfe373556313c47c41c
+# vendor/bin/hw/android.hardware.sensors-service.multihal|91def1d1d0a95028928a3a2077837fe429156527
+# vendor/etc/init/android.hardware.sensors-service-multihal.rc|b3f1924a0090f8c2f5bf3cfe373556313c47c41c
 # vendor/etc/vintf/manifest/android.hardware.sensors-multihal.xml
 vendor/etc/permissions/com.xiaomi.sensor.xml|4fe00263deb7497965cf21abf7ff19ed2bda8095
 vendor/lib/hw/sensors.dynamic_sensor_hal.so|d328312645369f08e5710ed6fbc6c17d638802db
