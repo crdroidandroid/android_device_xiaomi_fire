@@ -277,9 +277,47 @@ module = ExtractUtilsModule(
     add_firmware_proprietary_file=True,
 )
 
+
+def install_md1img_pack_rule() -> None:
+    top = Path(__file__).resolve().parents[3]
+    android_mk = top / 'vendor/xiaomi/fire/Android.mk'
+    marker = '# fire: repack md1img with the built vendor_boot'
+    contents = android_mk.read_text()
+
+    if marker in contents:
+        print('md1img pack rule already present')
+        return
+
+    lines = contents.splitlines(keepends=True)
+    matches = [
+        i for i, line in enumerate(lines)
+        if 'add-radio-file-sha1-checked,radio/md1img.img,' in line
+    ]
+    if len(matches) != 1:
+        raise RuntimeError(
+            f'Expected one md1img radio rule in {android_mk}, found {len(matches)}'
+        )
+
+    rule = (
+        "\n"
+        "# fire: repack md1img with the built vendor_boot\n"
+        "FIRE_MD1IMG_STOCK := $(LOCAL_PATH)/radio/md1img.img\n"
+        "FIRE_MD1IMG_PACKER := device/xiaomi/fire/tools/pack_md1img.sh\n"
+        "FIRE_MD1IMG_OUTPUT := $(PRODUCT_OUT)/md1img.img\n"
+        "\n"
+        "$(FIRE_MD1IMG_OUTPUT): $(FIRE_MD1IMG_STOCK) $(PRODUCT_OUT)/vendor_boot.img $(FIRE_MD1IMG_PACKER)\n"
+        "\t$(hide) $(FIRE_MD1IMG_PACKER) $(FIRE_MD1IMG_STOCK) $(PRODUCT_OUT)/vendor_boot.img $@\n"
+        "\n"
+    )
+    lines.insert(matches[0] + 1, rule)
+    android_mk.write_text(''.join(lines))
+    print('Installed md1img pack rule')
+
+
 if __name__ == '__main__':
     prune_manifests_from_args()
     utils = ExtractUtils.device(module)
     utils.run()
     fix_hos2_tinyxml2_sonames()
     patch_pq_blob()
+    install_md1img_pack_rule()
