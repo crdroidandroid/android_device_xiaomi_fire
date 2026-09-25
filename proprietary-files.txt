@@ -702,9 +702,9 @@ vendor/lib64/liboemcrypto.so|d11c2253d6ae2e99a26dfccb200f98c96f1791f2
 #y system_ext/lib/vendor.xiaomi.hardware.fingerprintextension@1.0.so
 #y system_ext/lib64/vendor.xiaomi.hardware.fingerprintextension-V1-ndk.so
 #y system_ext/lib64/vendor.xiaomi.hardware.fingerprintextension@1.0.so
-#y vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service
-#y vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc
-#y vendor/etc/vintf/manifest/android.hardware.biometrics.fingerprint@2.1-service.xml
+vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service
+vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc
+vendor/etc/vintf/manifest/android.hardware.biometrics.fingerprint@2.1-service.xml
 #y vendor/lib64/com.fingerprints.extension@1.0.so
 vendor/lib64/libgf_ca.so|a3c555947256704bdfc13dee8d58ef0947bcb340
 vendor/lib64/libgf_hal.so|c56c50c606626d2ac9b1bc3bd79ca78583fd5fda
@@ -2537,3 +2537,7 @@ vendor/etc/audio_param/AudioParamOptions_vext.xml:vendor/etc/audio_param_cust/au
 
 vendor/lib/soundfx/libmisoundfx_aidl.so;DISABLE_CHECKELF|8c0b0a2abd4f74060407b7ef7399dc86c5a4590a|d564abc958dfc31c3016e0486ad10b402a65e7e2
 vendor/lib64/soundfx/libmisoundfx_aidl.so;DISABLE_CHECKELF|5d463fa2ecbd8e8f952bcec34908bf120295b69f|902a6ef80a9fcce0e5ac86c8010ea4f0587eea8b
+
+# Legacy fingerprint HAL modules for the stock HIDL service
+vendor/lib64/hw/fingerprint.fpc.so
+vendor/lib64/hw/fingerprint.goodix.so;DISABLE_CHECKELF
