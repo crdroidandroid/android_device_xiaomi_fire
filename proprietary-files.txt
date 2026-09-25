@@ -877,7 +877,7 @@ vendor/etc/media_profiles_V1_0.xml|2554d1d04b38b0441609ef6a7b3da842b0e8bb93
 # NFC
 vendor/bin/hw/android.hardware.nqnfc-service.nxp|ea47fbe2ca25430d157ffa66a88595360072009a
 vendor/etc/init/nfc-service-nxp.rc|3143f97f228157cffb9485c62007bff44fecd4bf
-vendor/etc/init/init.vnd_fire.nfc.rc|7d1928ecafe08880bc8be7aa0887d23d59d5d140
+# vendor/etc/init/init.vnd_fire.nfc.rc|7d1928ecafe08880bc8be7aa0887d23d59d5d140
 vendor/etc/vintf/manifest/nfc-service-nxp.xml|c269465ec1154f7ac1052d8075f47818882fcb41
 vendor/lib64/vendor.nxp.hardware.nfc@2.0.so|b19f25bfbb41b799dbd77433aec8f8738ab8f4ac
 #y vendor/lib64/vendor.nxp.nxpnfc@1.0.so
@@ -893,6 +893,8 @@ vendor/lib/hw/android.hardware.nfc@1.0-impl.so|abfa4e6bad7d74d31ee8b238d68bc0e5f
 # NFC configs
 #y etc/libnfc-nci.conf
 vendor/etc/libnfc-nci.conf|0e5f04c87158941ce484a58174c96919ae92a501
+odm/etc/libnfc-nxp.conf
+odm/etc/libnfc-nxp_RF.conf
 
 # Payment (IFAA)
 #y vendor/app/IFAAService/IFAAService.apk

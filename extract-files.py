@@ -250,6 +250,22 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('AHardwareBuffer_lock')
         .clear_symbol_version('AHardwareBuffer_release')
         .clear_symbol_version('AHardwareBuffer_unlock'),
+    'vendor/bin/hw/android.hardware.nqnfc-service.nxp': blob_fixup()
+        .binary_regex_replace(b'fire\x00', b'heat\x00'),
+
+    'vendor/etc/init/nfc-service-nxp.rc': blob_fixup()
+        .regex_replace(
+            r'(?m)^    group nfc oem_2912$',
+            '    group nfc oem_2912\n'
+            '    disabled\n'
+            '    interface aidl android.hardware.nfc.INfc/default',
+        )
+        .regex_replace(
+            r'(?m)^    setprop ro.vendor.nfc.repair 1$',
+            '    setprop ro.vendor.nfc.repair 1\n'
+            '    start vendor.nfc_hal_service',
+        ),
+
 }
 
 module = ExtractUtilsModule(
