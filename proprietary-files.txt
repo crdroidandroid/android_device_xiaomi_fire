@@ -702,9 +702,9 @@ vendor/lib64/liboemcrypto.so|d11c2253d6ae2e99a26dfccb200f98c96f1791f2
 #y system_ext/lib/vendor.xiaomi.hardware.fingerprintextension@1.0.so
 #y system_ext/lib64/vendor.xiaomi.hardware.fingerprintextension-V1-ndk.so
 #y system_ext/lib64/vendor.xiaomi.hardware.fingerprintextension@1.0.so
-vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service
-vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc
-vendor/etc/vintf/manifest/android.hardware.biometrics.fingerprint@2.1-service.xml
+vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service|f9ea5659ba8677460cbe60d85696b6fe61a89acf
+vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc|1fd336060d3ceea78a237367efe79c60d9e458c8
+vendor/etc/vintf/manifest/android.hardware.biometrics.fingerprint@2.1-service.xml|4269b1975f83e5c2240738197515b192127a5ce0
 #y vendor/lib64/com.fingerprints.extension@1.0.so
 vendor/lib64/libgf_ca.so|a3c555947256704bdfc13dee8d58ef0947bcb340
 vendor/lib64/libgf_hal.so|c56c50c606626d2ac9b1bc3bd79ca78583fd5fda
@@ -875,8 +875,8 @@ vendor/etc/media_profiles_V1_0.xml|2554d1d04b38b0441609ef6a7b3da842b0e8bb93
 # Neural networks
 
 # NFC
-vendor/bin/hw/android.hardware.nqnfc-service.nxp|ea47fbe2ca25430d157ffa66a88595360072009a
-vendor/etc/init/nfc-service-nxp.rc|3143f97f228157cffb9485c62007bff44fecd4bf
+vendor/bin/hw/android.hardware.nqnfc-service.nxp|ea47fbe2ca25430d157ffa66a88595360072009a|76e5ad2c0a9630ed01a6a24117523050ea96d526
+vendor/etc/init/nfc-service-nxp.rc|3143f97f228157cffb9485c62007bff44fecd4bf|10fb46406545f2e38cfd7d6f579faa8c92432946
 # vendor/etc/init/init.vnd_fire.nfc.rc|7d1928ecafe08880bc8be7aa0887d23d59d5d140
 vendor/etc/vintf/manifest/nfc-service-nxp.xml|c269465ec1154f7ac1052d8075f47818882fcb41
 vendor/lib64/vendor.nxp.hardware.nfc@2.0.so|b19f25bfbb41b799dbd77433aec8f8738ab8f4ac
@@ -893,8 +893,8 @@ vendor/lib/hw/android.hardware.nfc@1.0-impl.so|abfa4e6bad7d74d31ee8b238d68bc0e5f
 # NFC configs
 #y etc/libnfc-nci.conf
 vendor/etc/libnfc-nci.conf|0e5f04c87158941ce484a58174c96919ae92a501
-odm/etc/libnfc-nxp.conf
-odm/etc/libnfc-nxp_RF.conf
+odm/etc/libnfc-nxp.conf|d913bb16cb4052c86b0f4b677d9facc4eb5be94d
+odm/etc/libnfc-nxp_RF.conf|c126ac099fb4f907fc53b89e361c31d1c9d625d3
 
 # Payment (IFAA)
 #y vendor/app/IFAAService/IFAAService.apk
@@ -979,16 +979,46 @@ vendor/lib64/vendor.mediatek.hardware.mtkpower-V2-ndk.so|8eb2f7347f24330dc7c17e4
 #y vendor/lib64/vendor.mediatek.hardware.mtkpower@1.2.so
 vendor/lib64/vendor.mediatek.hardware.mtkpower_applist-V2-ndk.so|068fad25f6072f2603ca2193e0c8423a82e0a101
 
-# Radio
-#y system_ext/lib/vendor.mediatek.hardware.mtkradioex@3.0.so
-#y system_ext/lib64/vendor.mediatek.hardware.mtkradioex@3.0.so
+# Radio (MTK AIDL RIL & Hardware HAL) - from Xiaomi fire OS2.0.209.0
+vendor/bin/ccci_mdinit|a1b1baaaacd7959ec381f8d9d3840af48a7a469d
+vendor/bin/ccci_rpcd|de11b2a64e8154c4915892011523fc94d1f63dba
+vendor/bin/gsm0710muxd|dc6626bd5cf256ff8166f663dc58b76185a2b503
 vendor/bin/hw/mtkfusionrild|1d37bb7a40e396799289d5e10360fc1b7035feca|417bd97975c9425d98a36ad10807fdfa9ef3652d
+vendor/bin/muxreport|774112509bf7a4d00bf781501cb22fec332011d5
+
+vendor/etc/ecc_list.xml|0cf0bd72643d855d2ab3e5ab0028e8b109839ed4
+vendor/etc/ecc_list_OP01.xml|0a34cf0ed4eff0f1c3e7681bea0597facdfac190
+vendor/etc/ecc_list_OP02.xml|68a858ce5eea5c9e2509589544ba688a31a6f6b0
+vendor/etc/ecc_list_OP09.xml|39d0363da7ec91dee22f7ea456afa3a36162c107
+vendor/etc/ecc_list_OP12.xml|d3fa1db85858cbd2ac99ac71154f8dc9f45cd298
+vendor/etc/ecc_list_OP17.xml|8921c3e7227c111eeb8c07a51a22d6a23abafb15
+vendor/etc/ecc_list_OP18.xml|ae57ae66140cbbe2c0c0d74cb2322cd6ed419ecf
+vendor/etc/ecc_list_OP236.xml|d36a32859f56f2dd18782dcdf0a58a25a2b325f7
+vendor/etc/ecc_list_preference.xml|73fff5d5ce01a56e45830e1fd8325f2eae5b5f9b
+vendor/etc/special_pws_channel.xml|c34755567d6ec1ac78bba0be6a7bc3f883960a1a
+vendor/etc/vendor-apns-conf.xml|aef8e91df802c15510cb7ac7af9fedf21c325df5
+vendor/etc/virtual-spn-conf-by-efgid1.xml|e3d5faa409f116906e9800aef4775fdefdd2e9e4
+vendor/etc/virtual-spn-conf-by-efpnn.xml|b1c8b5a4c3aa7ab112c1272417f2dea53f013e00
+vendor/etc/virtual-spn-conf-by-efspn.xml|c37adab1806ceff80a7da39aa863355b5f7e2a6c
+vendor/etc/virtual-spn-conf-by-imsi.xml|7332a2a5abc6fd792a71ab965e7595518dba9407
+
+vendor/etc/init/gsm0710muxd.rc|4270e11cfcb97e9af386828b2ca4e81f54509f38
+vendor/etc/init/init.cccimdinit.rc|088c0f81716aa292b942e5e7da527108ba952f3e
+vendor/etc/init/init.cccirpcd.rc|0c300b95b4462d36db9e1c9da731ac6ee5139578
 vendor/etc/init/mtkrild.rc|c9a05eb175cead51f9d83634d7395a5c692ae3b6
+vendor/etc/init/muxreport.rc|d69e603c5622a084499532afe1139e019d0caf95
+
 vendor/lib/libmtkcutils.so|ac1c61cd24124c4c3866b96d7990485036b71c02
 vendor/lib/libmtkhardware_legacy.so|22cf7c89d42ef7bea995f5fd31dee902b9e12800
 vendor/lib/libmtkproperty.so|6632ba379084ce8c6799a96fe4c3d53f78f88098
 vendor/lib/libmtkrillog.so|052f9afa0f163086c10e26dc59182963173de458
+
+vendor/lib64/libcarrierconfig.so|f594155771c7ceb14367d258d4674cc300647375
+vendor/lib64/libccci_util.so|0821800c96a4e62bd12ea9da963b628a40d95fcf
+vendor/lib64/libcurl_xcap_md.so|39f6af523cc0823a9e92483b7cd05651fc5ff3dd
 vendor/lib64/libmipc.so|bc35bdf4675a471d11826e22d294e57af9fac875
+vendor/lib64/libmnetlink_v104.so|4f480a60f1ac096218b3000d1197ab0ca112b9c3
+vendor/lib64/libmtk-ril.so|a7edec055ef394675b2dfd146f1e26e5963e2b55
 vendor/lib64/libmtkconfig.so|d99027c2b7d5f7bbca6f84dd1c804f43ae88bbab
 vendor/lib64/libmtkconfigutils.so|6a29c2f68596b0e2a54eae42f4f0bcc9bc32d6a8
 vendor/lib64/libmtkcutils.so|10b46386af5d1ffdbe9b2f84253d6181b03902bf
@@ -999,7 +1029,11 @@ vendor/lib64/libmtkrilutils.so|fa184456f7ac8fd1e31cfcee8c7d78902c3d2127
 vendor/lib64/libmtkutils.so|17bed2673713ae55feb63bccfcebb805e989e0ec
 vendor/lib64/libratconfig.so|f0e51d8aa0dc55c11aa0bf117578fe8d49bdf64a
 vendor/lib64/librilfusion.so|7686ac9704d5e26fee597b808caf1ad7c1f548f6
+vendor/lib64/libsysenv.so|b508b24b42b344492a655b1a9a655029e67a3b35
 vendor/lib64/libtrm.so|dd3c688c4a0e4591c946ca12b789c949c9d3fa73
+vendor/lib64/libverno.so|191df1813484ed621cac609ebe52dd41127d0750
+vendor/lib64/libwpfa.so|7df7dac1e4b4c0ddab533db575c012bb1f5fd271
+
 vendor/lib64/vendor.mediatek.hardware.mtkradioex.assist-V2-ndk.so|225e1de387ea69750f30b931fce4728e1e6aadfc
 vendor/lib64/vendor.mediatek.hardware.mtkradioex.atci-V1-ndk.so|eec74d96b2cad9473f46a78e81558e223ea0e178
 vendor/lib64/vendor.mediatek.hardware.mtkradioex.cap-V1-ndk.so|e9a621831cd9914656e18a67386b3c76a3a8684a
@@ -1018,18 +1052,45 @@ vendor/lib64/vendor.mediatek.hardware.mtkradioex.sim-V2-ndk.so|130b122ec12ba9b4b
 vendor/lib64/vendor.mediatek.hardware.mtkradioex.smartratswitch-V1-ndk.so|ccf43ad0f4d56649773140c8c56ec17ea4edf8f4
 vendor/lib64/vendor.mediatek.hardware.mtkradioex.voice-V1-ndk.so|0e6a2a1dddbd693c863b412384689ce65ab6cb14
 
-# Radio (IMS)
-#y system_ext/lib/vendor.mediatek.hardware.videotelephony-V1-ndk.so
-#y system_ext/lib/vendor.mediatek.hardware.videotelephony@1.0.so
-#y system_ext/lib64/vendor.mediatek.hardware.videotelephony-V1-ndk.so
-#y system_ext/lib64/vendor.mediatek.hardware.videotelephony@1.0.so
+# Radio (IMS HAL - Vendor AIDL)
 vendor/etc/permissions/android.hardware.telephony.ims.prebuilt.xml:vendor/etc/permissions/android.hardware.telephony.ims.xml|d74f28d545d0a106f84fc0f9d6034fba9dd2d948
 vendor/lib/hw/vendor.mediatek.hardware.videotelephony-impl.so|3ea5fc2c83c49507b32f9acdb8b26a6bf6d49fac
 vendor/lib/vendor.mediatek.hardware.rcs-V1-ndk.so|61d9b73ca6607cb451098f740ddc2b20096487d2
 vendor/lib/vendor.mediatek.hardware.rcs@2.0.so|a924ca4f52366fa688c5110d697ee00773ca59f5
-vendor/lib/vendor.mediatek.hardware.videotelephony-V1-ndk.so|d71bca0f5f7cb50d444fd85d68e3e40fda5e8326
 vendor/lib64/hw/vendor.mediatek.hardware.videotelephony-impl.so|5ac3bf338dda1c3f4d438be3310c28cd2fbfcedb
-vendor/lib64/vendor.mediatek.hardware.videotelephony-V1-ndk.so|001c7ca508b426c097c2eec002c42fd5bad95278
+vendor/lib/vendor.mediatek.hardware.videotelephony-V1-ndk.so;MODULE_SUFFIX=_vendor|d71bca0f5f7cb50d444fd85d68e3e40fda5e8326
+vendor/lib64/vendor.mediatek.hardware.videotelephony-V1-ndk.so;MODULE_SUFFIX=_vendor|001c7ca508b426c097c2eec002c42fd5bad95278
+
+# Radio (IMS) - from Pacman B4.1-260813-0941
+system_ext/bin/vtservice|4a8759f67cc4f238983c57193d88d1cc13956e06
+system_ext/etc/init/init.vtservice.rc|50a2249906edc06059b443513db47a2ddc0490dc
+system_ext/etc/sysconfig/com.mediatek.ims.config.xml|6899a013c6dfd293b616be7dde19b0f1455ce3a6
+system_ext/framework/mediatek-ims-base.jar:system/framework/mediatek-ims-base.jar;BOOT_JAR|379037af7466fd3a25afd95cedecdfe005afe839
+system_ext/framework/mediatek-ims-extension-plugin.jar|a355792e0ad157f927df2a3f9a36c0196e828cd6
+system_ext/framework/mediatek-telephony-base.jar:system/framework/mediatek-telephony-base.jar;BOOT_JAR|138a5b5600a8a46e8d407d2654bee0c21d742624
+system_ext/lib/libmtk_vt_wrapper.so|4377acf57cc309234157e69c3197bd4d9ea7f691
+system_ext/lib/libvcodec_cap.so|8f16190d071b853d811554b322ba18aa8e5c140b
+system_ext/lib/libvcodec_capenc.so|7c861e46b8e6f1df39814154e9ca8a348a52a5c1
+system_ext/lib/vendor.mediatek.hardware.videotelephony-V1-ndk.so|f433d984183829d45124e80651e0237083690d22
+system_ext/lib/vendor.mediatek.hardware.videotelephony@1.0.so|075a7addbac72615bccd700cbfb1b87583dfc598
+system_ext/lib64/libcomutils.so|a2b7e7ed78b1d609f8c6ccbbfc5d59d12ad55a09
+system_ext/lib64/libimsma.so|42431f6f0a71881aeae103e03bb4a91ca0cb0e2a|e5d60105af8cee1433f3ba1762168cf35948846f
+system_ext/lib64/libimsma_adapt.so|2d19ab68fa39b9f4eb24be744ae18ca98f70b767
+system_ext/lib64/libimsma_rtp.so|6574294e15fa79920afc7fa86c24e5bc98beef6f
+system_ext/lib64/libimsma_socketwrapper.so|fc633e26c872cfd795fa40ab8cea4ca7cdd748b2
+system_ext/lib64/libmtk_vt_service.so|bb983dc90deba3901d2151634c7626737dc46ec3
+system_ext/lib64/libmtk_vt_wrapper.so|d94b88ad574507397ee2a58c5a7cb012e91ab91c
+system_ext/lib64/libsignal.so|38ab61c18cedce065ff16cbc71dbdf15681538f3
+system_ext/lib64/libsink.so:system_ext/lib64/libsink-mtk.so;FIX_SONAME|f4b755e06b7cb6698839c01e0b7abbad595393a4|f81d0a55f52110a4ebd0b471322acbc23f9c039a
+system_ext/lib64/libsource.so|c3cc681e00ee44dc2d132d27ad65a3707d11f2d0
+system_ext/lib64/libvcodec_cap.so|55ae86b76923218bf937205945e7cccc0a95ff8b
+system_ext/lib64/libvcodec_capenc.so|013f0131a424f8c2fc3815b02e466bc03a197324
+system_ext/lib64/libvt_avsync.so|769fde91710ad6dc7d757fefd8aa0524090e17b1
+system_ext/lib64/vendor.mediatek.hardware.videotelephony-V1-ndk.so|8b13966bdf703d2eae99d4f65a2e77fbd939064c
+system_ext/lib64/vendor.mediatek.hardware.videotelephony@1.0.so|93f6c2616998737cc11a27bdee3fc646e6f4b7ce
+system_ext/priv-app/ImsService/ImsService.apk|e89c22375e0c441ba5ef34c78b053b0649e5d0ab
+system_ext/priv-app/MtkGbaService/MtkGbaService.apk|f7b8f38c7fb81dd47c30d6feee63ce8ff2f00fd4
+system_ext/priv-app/MtkTelephonyAssist/MtkTelephonyAssist.apk|d20b88c787fed1348ae8709bf24e99537067ac6d
 
 # RenderScript
 vendor/lib/hw/android.hardware.renderscript@1.0-impl.so|8301eb4c7ec9ece66afb163b3bd3bb2b7392ada9
@@ -1176,8 +1237,6 @@ vendor/bin/hw/vtservice_aidl|df7bca1a1c4ab60f33b862aff71eb5ba94ace411
 #y vendor/bin/boringssl_self_test64
 # vendor/bin/bp_id_attestation
 vendor/bin/bp_kmsetkey_ca|be70ae199c3160a0385b6942f4b13adac9ac7a64
-vendor/bin/ccci_mdinit|a1b1baaaacd7959ec381f8d9d3840af48a7a469d
-vendor/bin/ccci_rpcd|de11b2a64e8154c4915892011523fc94d1f63dba
 # vendor/bin/charge_logger
 # vendor/bin/charon
 vendor/bin/chipinfo|d3abd7452b011408b4b755af117fb5ffb535a165
@@ -1200,7 +1259,6 @@ vendor/bin/fuelgauged|484ba7618ab1a9c96bd3507827112fc2ee35dd72
 vendor/bin/fuelgauged_nvram|f5d0cb200bf9dbea878c9357d93d81d3e7f4fc8b
 #y vendor/bin/getfattr
 #y vendor/bin/getopt
-vendor/bin/gsm0710muxd|dc6626bd5cf256ff8166f663dc58b76185a2b503
 vendor/bin/iperf|b3cdf3b1c04cc88ed5623c02643ba2714c3b04be
 vendor/bin/ipsec_mon|c27536ac0aa86603c036cce2260637238a408355
 # vendor/bin/iwlist
@@ -1239,8 +1297,8 @@ vendor/bin/rttv|35c5b1067f88fdd7a11db0ca75caccc6f49be87d
 # vendor/bin/stroke
 vendor/bin/teei_daemon|6ff2d58b9a2fc53013692a6b73e9e1d5b8c39936
 # vendor/bin/thermal
-vendor/bin/thermal_manager
-vendor/bin/thermalloadalgod
+vendor/bin/thermal_manager|e83f43892247f8df2b3ebf7edddb2e33bb1c4540
+vendor/bin/thermalloadalgod|80eb5dc4fcbdf544f4f9c5fd953b5c88ac7fcbbb
 # vendor/bin/trusty-ut-ctrl
 vendor/bin/v3avpud|71fbb22786cd0fb30a5f6d76c0331efdcb58b0a7
 vendor/bin/volte_clientapi_ua|bf22d48875f1af7ff0cb484aea126ac1236885dc
@@ -1287,12 +1345,9 @@ vendor/etc/init/display.rc|687674c2ea420b67b867c9bd661e9e52a71917ab
 vendor/etc/init/fuelgauged_init.rc|059d27cf33a84a559d45597be9f1f700dbb0d947
 vendor/etc/init/fuelgauged_nvram_init.rc|50d553439d88ac9ee006f5c3f8388f2911ecd38b
 vendor/etc/init/gpuserv-default.rc|83d46ab92df3087da155f2e82cb558631a5e2132
-vendor/etc/init/gsm0710muxd.rc|4270e11cfcb97e9af386828b2ca4e81f54509f38
 vendor/etc/init/hostapd.android.rc|26c43d4e7f78acebf40c0be95d845ecdedb5eb38
 # vendor/etc/init/init.bip.rc
 vendor/etc/init/init.bt_drv.rc|e5dae0dee8aa34675cedd2ef4c9c68a45dcd7515
-vendor/etc/init/init.cccimdinit.rc|088c0f81716aa292b942e5e7da527108ba952f3e
-vendor/etc/init/init.cccirpcd.rc|0c300b95b4462d36db9e1c9da731ac6ee5139578
 # vendor/etc/init/init.connfem.rc
 vendor/etc/init/init.fmradio_drv.rc|8c67dfb2dd784e4936149474f4132b0a78f4ed4c
 # vendor/etc/init/init.fpsgo.rc
@@ -1300,7 +1355,7 @@ vendor/etc/init/init.gps_drv.rc|37989279b79db8a5d910249c257744aa9efc4589
 vendor/etc/init/init.md_apps.rc|4eba4275df7baedf587bc5b73b371980c3e9276b
 # vendor/etc/init/init.thermal.rc
 # vendor/etc/init/init.thermal_manager.rc
-vendor/etc/init/init.thermalloadalgod.rc
+vendor/etc/init/init.thermalloadalgod.rc|d70cde3b8a1a1607f7a99475b3357a894907458f
 vendor/etc/init/init.touch.rc|518888ce37bdf37d4df8d7fde7837af60a6c32f6
 vendor/etc/init/init.volte_imcb.rc|2b7e2e2f7aaf3ca710caf0523c93a817d95ef253
 vendor/etc/init/init.volte_imsm_93.rc|6f1e96e82ac18fdf0acc6791ab8db3a6519ca605
@@ -1418,15 +1473,6 @@ vendor/etc/aurisys_config_rv.xml|aab8dec4350e3d3ce5815b9ad189a50b4fa8adfa
 vendor/etc/build_flags.json|5ea16fa9155a3af4c955666c3629e69991f884c9
 vendor/etc/command.csv|4cfb67087fece73209cfeb8371f145c9d4c4d4b3
 vendor/etc/df_default.xml|946f28c40166574edaa4249277dd25ca36830be9
-vendor/etc/ecc_list.xml|0cf0bd72643d855d2ab3e5ab0028e8b109839ed4
-vendor/etc/ecc_list_OP01.xml|0a34cf0ed4eff0f1c3e7681bea0597facdfac190
-vendor/etc/ecc_list_OP02.xml|68a858ce5eea5c9e2509589544ba688a31a6f6b0
-vendor/etc/ecc_list_OP09.xml|39d0363da7ec91dee22f7ea456afa3a36162c107
-vendor/etc/ecc_list_OP12.xml|d3fa1db85858cbd2ac99ac71154f8dc9f45cd298
-vendor/etc/ecc_list_OP17.xml|8921c3e7227c111eeb8c07a51a22d6a23abafb15
-vendor/etc/ecc_list_OP18.xml|ae57ae66140cbbe2c0c0d74cb2322cd6ed419ecf
-vendor/etc/ecc_list_OP236.xml|d36a32859f56f2dd18782dcdf0a58a25a2b325f7
-vendor/etc/ecc_list_preference.xml|73fff5d5ce01a56e45830e1fd8325f2eae5b5f9b
 vendor/etc/factory.ini|c742226383925482608a69b9f7ed05edc1a02785
 #y vendor/etc/fstab.emmc
 vendor/etc/fstab.enableswap|2094c233bb542d002e2b6b115bac408e50c56a29
@@ -1450,16 +1496,10 @@ vendor/etc/public.libraries.txt|f1a5a4d498b49a46e9cff55a997939746602e620
 vendor/etc/screen_light.xml|f3b357d7609c06358f009adf331ac80eb4d3f864
 vendor/etc/slp_conf|8e0eeb966b5f1f2d506342aae276cbf3cd115039
 vendor/etc/smsdbvisitor.xml|1126fe83c5adab3628b568ab5f1bebdb24f5d3fe
-vendor/etc/special_pws_channel.xml|c34755567d6ec1ac78bba0be6a7bc3f883960a1a
 vendor/etc/thermalbreakboostconfig.xml|ee65705dd610d2ee329250639c27181e0c2eaa05
 vendor/etc/throttle.sh|7060924be276c199e8373dc2f59865dddba64672
 vendor/etc/ueventd.rc|5e12179ec5ca49ec79565c6d180a65a5f1ee585b
 vendor/etc/usb_audio_accessory_only_policy_configuration.xml|381216ae49ad362e5a7e280cce6bdbeac9806ef5
-vendor/etc/vendor-apns-conf.xml|aef8e91df802c15510cb7ac7af9fedf21c325df5
-vendor/etc/virtual-spn-conf-by-efgid1.xml|e3d5faa409f116906e9800aef4775fdefdd2e9e4
-vendor/etc/virtual-spn-conf-by-efpnn.xml|b1c8b5a4c3aa7ab112c1272417f2dea53f013e00
-vendor/etc/virtual-spn-conf-by-efspn.xml|c37adab1806ceff80a7da39aa863355b5f7e2a6c
-vendor/etc/virtual-spn-conf-by-imsi.xml|7332a2a5abc6fd792a71ab965e7595518dba9407
 vendor/etc/wfd_source_capability.csv|328fee700fc01658ed7709d5dbd4115ee52441b8
 vendor/firmware/BT_FW.cfg|76af0b140eeba580216774bef26e8cc737f04530
 vendor/firmware/WMT_SOC.cfg|804e714068a2e8c9943ca5a4dffddf3ce2190b9c
@@ -1722,8 +1762,6 @@ vendor/lib64/libcamalgo.vsf.so|addead46ae6103a3e88039654bc364f7f4511153
 vendor/lib64/libcamalgo.warp.so|68ed43210d2d8af9f8c7cadccada9ce266e2fec4
 vendor/lib64/libcameracustom.eis.so|921212a08ff9fa7b31a81e2a9122f99175acec7c
 vendor/lib64/libcapctrl.so|b599f984816f584e56176f64d4550bc2d114ae57
-vendor/lib64/libcarrierconfig.so|f594155771c7ceb14367d258d4674cc300647375
-vendor/lib64/libccci_util.so|0821800c96a4e62bd12ea9da963b628a40d95fcf
 vendor/lib64/libcharon-ss.so|956c4acaa0d6208a89fd342975a105625ff6042f
 #y vendor/lib64/libcheckpid.so
 vendor/lib64/libconnfem.so|1327ea1d524ccb59f37b605e15272c5a9ab3f11a
@@ -1786,14 +1824,12 @@ vendor/lib64/libmisound.so|a2a36dc56b559c32135128c1cbdf03bd50c01ad3
 #y vendor/lib64/libmmagent.so
 #y vendor/lib64/libmmlpqImpl.so
 vendor/lib64/libmmprofile.so|dd5b8d031701475bdfbb143285ca85c3eaea1e24
-vendor/lib64/libmnetlink_v104.so|4f480a60f1ac096218b3000d1197ab0ca112b9c3
 vendor/lib64/libmnl.so|566b94b5ac00359069190e5cc84cf295622f4def
 vendor/lib64/libmp4enc_sa.ca7.so|60d590d0826f9635bc3cf9fde79221616b75f953
 vendor/lib64/libmsbc_mtk.so|e94f9a7b1f35edec8e29b108cc2db407834fca4c
 vendor/lib64/libmsnr.so|92c0b0efccf5fd8223c51db5d92946eccf9d39f8
 vendor/lib64/libmtcloader.so|4f06e3c87a62ed2bea85877050351a36edbb299e
 vendor/lib64/libmtk-fusion-ril-prop-vsim.so|174edb151d014fbbb2fc6b1cfae026035568efc7
-vendor/lib64/libmtk-ril.so|a7edec055ef394675b2dfd146f1e26e5963e2b55
 vendor/lib64/libmtkcam.eventcallback.so|2b4a220f91a6ee7d69c17affd8bb65899d65679a
 vendor/lib64/libmtkcam.featurepipe.capture.so|d7e6b8e164c2c21e79a756509d19cabfbfa49193
 vendor/lib64/libmtkcam.featurepipe.depthmap.so|8ae58193984ed5d37aafefb969b0c942c7b43acf
@@ -1900,7 +1936,6 @@ vendor/lib64/libstereoinfoaccessor_vsdof.so|2efc8b3cd666b3c761991c1c8a38a0c05201
 vendor/lib64/libstorage_otp.so|ceccc19838890056b94b9c6d78eb4b8ed0d9e6eb
 vendor/lib64/libstrongswan.so|7b60767a9d7a4d2dc71bad06a221eb5ec111ca51
 vendor/lib64/libswtcc.so|16bbc23e4c4a0d371126f5ec3cd4a86195effab1
-vendor/lib64/libsysenv.so|b508b24b42b344492a655b1a9a655029e67a3b35
 vendor/lib64/libteei_daemon_vfs.so|e1801027e4320dd23ed94e71164a7b34993eb003|372ffb9abe1feae5c9aa33c4a6e466fe34bbec35
 vendor/lib64/libthermalalgo.so|66a115b06530b775b6e3d5548060a1bb5786bb2d
 vendor/lib64/libthha.so|9f940718d183c04c9b8b89f9fb22d760bf6c5ac7
@@ -1914,7 +1949,6 @@ vendor/lib64/libvcodec_oal.so|2adc4a6880b98b9a7ebd1cc26523ba4506d235bb
 vendor/lib64/libvcodec_utility_v3a.so|3c2eb349ae0d2a0de9b9c6c600f2dec4a939e6ce
 vendor/lib64/libvcodecdrv_header_stub.so|64efa6517fdb63b7a6b1bacd7209fe3bb59ac295
 vendor/lib64/libvcodecdrv_v3a.so|7064966d6d577639885561a7b72b7ac9c1a606fe
-vendor/lib64/libverno.so|191df1813484ed621cac609ebe52dd41127d0750
 vendor/lib64/libvia-ril.so|eb69773e3c60b4c6e06a34a283a24569233471ca
 vendor/lib64/libviamipc-ril.so|ff4070735c92e0df78e584b6378b3ec039bf9104
 vendor/lib64/libvpu5.so|3bceda19fa1772e64d11e3b124cf2893b28ab617
@@ -1925,7 +1959,6 @@ vendor/lib64/libwifinvramdata.so|670165396e8c5d3eb020463ba5610e79cc9b4d7e
 vendor/lib64/libwifitest.so|c8145e9f2f2a3d957c89c80ef4c1dfd206210ace
 vendor/lib64/libwo.so|be3b823f13ce353e5918a16b308e492fb9e7fe4a
 vendor/lib64/libwpa_client.so|8a4912b4a552594ce17dedcf6a8e3c5fa41c2d26
-vendor/lib64/libwpfa.so|7df7dac1e4b4c0ddab533db575c012bb1f5fd271
 vendor/lib64/libwvkeyboxext.so|6b8665f62f81ac9ab56cc46cd30cd965608ea2c0
 vendor/lib64/meta_wifi_data.so|df0e371ceae0bb36706a348bb6293098239b9510
 vendor/lib64/mtk_lbs_service-impl.so|1d0c2f323c4648d33634a5bea85c68c52495c352
@@ -2541,5 +2574,5 @@ vendor/lib/soundfx/libmisoundfx_aidl.so;DISABLE_CHECKELF|8c0b0a2abd4f74060407b7e
 vendor/lib64/soundfx/libmisoundfx_aidl.so;DISABLE_CHECKELF|5d463fa2ecbd8e8f952bcec34908bf120295b69f|902a6ef80a9fcce0e5ac86c8010ea4f0587eea8b
 
 # Legacy fingerprint HAL modules for the stock HIDL service
-vendor/lib64/hw/fingerprint.fpc.so
-vendor/lib64/hw/fingerprint.goodix.so;DISABLE_CHECKELF
+vendor/lib64/hw/fingerprint.fpc.so|78c963de86b6bed798683408dd119f87450f778f
+vendor/lib64/hw/fingerprint.goodix.so;DISABLE_CHECKELF|c3a91abf143273f21a52f00f7ae05874ac9f878b

@@ -116,7 +116,10 @@ def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
     return f'{lib}_{partition}' if partition == 'vendor' else None
 
 lib_fixups: lib_fixups_user_type = {
-    **lib_fixups
+    **lib_fixups,
+    (
+        'vendor.mediatek.hardware.videotelephony-V1-ndk',
+    ): lib_fixup_vendor_suffix,
 }
 
 import subprocess
@@ -139,12 +142,20 @@ def fix_hos2_tinyxml2_sonames():
         )
 
 blob_fixups: blob_fixups_user_type = {
+    # IMS & VoLTE / ViLTE (Pacman stack)
+    'vendor/bin/hw/mtkfusionrild' : blob_fixup()
+        .add_needed('libutils-v32.so'),
+    'system_ext/lib64/libimsma.so': blob_fixup()
+        .replace_needed('libsink.so', 'libsink-mtk.so'),
+
+    # Sensors & Camera
     ('vendor/lib64/libaalservice.so', 'vendor/lib64/libcam.utils.sensorprovider.so'): blob_fixup()
         .replace_needed('libsensorndkbridge.so', 'android.hardware.sensors@1.0-convert-shared.so'),
 
     ('vendor/bin/mnld'): blob_fixup()
         .replace_needed('libsensorndkbridge.so', 'android.hardware.sensors@1.0-convert-shared.so'),
 
+    # Graphics AIDL NDK V7 upgrade
     (
         'vendor/lib/egl/libGLES_mali.so',
         'vendor/lib64/egl/libGLES_mali.so',
@@ -168,16 +179,17 @@ blob_fixups: blob_fixups_user_type = {
     ): blob_fixup()
         .replace_needed('android.hardware.graphics.common-V5-ndk.so', 'android.hardware.graphics.common-V7-ndk.so'),
 
-    # HOS2 PQ crashes in loadPqparamTable(), stalling HWC/SF at ~2 FPS.
+    # HOS2 PQ crashes in loadPqparamTable(), stalling HWC/SF at ~2 FPS
     ('vendor/lib64/hw/vendor.mediatek.hardware.pq_aidl-impl.so'): blob_fixup()
         .binary_regex_replace(
             b'\xff\x83\x06\xd1\xe8\x9b\x00\xfd',
             b'\x00\x00\x80\x52\xc0\x03\x5f\xd6',
         ),
 
+    # Audio AIDL HOS2 stack
     ('vendor/bin/hw/android.hardware.audio.service-aidl.mediatek'): blob_fixup()
         .replace_needed('libaudio_aidl_conversion_common_ndk.so', 'libaudio_aidl_conversion_common_ndk_prebuilt.so'),
-    
+
     (
         'vendor/lib/hw/audio.primary.mt6768.so',
         'vendor/lib64/hw/audio.primary.mt6768.so',
@@ -191,22 +203,19 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libxml2.so', 'libxml2-vendor.so')
         .replace_needed('libtinyxml2.so', 'libtinyxml2-hos2.so')
         .replace_needed('libtinyalsa.so', 'libtinyalsa-hos2.so'),
-    
+
     ('vendor/lib/android.hardware.audio.core-impl-mediatek.so', 'vendor/lib64/android.hardware.audio.core-impl-mediatek.so'): blob_fixup()
         .add_needed('libaudioutils_shim.so')
         .replace_needed('libaudio_aidl_conversion_common_ndk.so', 'libaudio_aidl_conversion_common_ndk_prebuilt.so'),
-    
+
     ('vendor/lib/libaudio_aidl_conversion_common_ndk_prebuilt.so', 'vendor/lib64/libaudio_aidl_conversion_common_ndk_prebuilt.so'): blob_fixup()
         .replace_needed('android.media.audio.common.types-V5-ndk.so', 'android.media.audio.common.types-V3-ndk.so'),
-    
+
     (
         'vendor/lib/soundfx/libmisoundfx_aidl.so',
         'vendor/lib64/soundfx/libmisoundfx_aidl.so',
     ): blob_fixup()
-        .replace_needed(
-            'libaudio_aidl_conversion_common_ndk.so',
-            'libaudio_aidl_conversion_common_ndk_prebuilt.so',
-        )
+        .replace_needed('libaudio_aidl_conversion_common_ndk.so', 'libaudio_aidl_conversion_common_ndk_prebuilt.so')
         .replace_needed('libxml2.so', 'libxml2-vendor.so'),
 
     ('vendor/lib/hw/android.hardware.soundtrigger3-impl.so', 'vendor/lib64/hw/android.hardware.soundtrigger3-impl.so'): blob_fixup()
@@ -250,6 +259,8 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('AHardwareBuffer_lock')
         .clear_symbol_version('AHardwareBuffer_release')
         .clear_symbol_version('AHardwareBuffer_unlock'),
+
+    # NFC model detection (fire -> heat)
     'vendor/bin/hw/android.hardware.nqnfc-service.nxp': blob_fixup()
         .binary_regex_replace(b'fire\x00', b'heat\x00'),
 
@@ -265,7 +276,6 @@ blob_fixups: blob_fixups_user_type = {
             '    setprop ro.vendor.nfc.repair 1\n'
             '    start vendor.nfc_hal_service',
         ),
-
 }
 
 module = ExtractUtilsModule(
