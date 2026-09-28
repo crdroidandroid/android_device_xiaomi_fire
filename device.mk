@@ -6,12 +6,6 @@
 
 DEVICE_PATH := device/xiaomi/fire
 
-# Stock board-specific identity (fire / heat), selected by init property imports.
-PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,\
-    $(DEVICE_PATH)/configs/props/variants/vendor,$(TARGET_COPY_OUT_VENDOR))
-PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,\
-    $(DEVICE_PATH)/configs/props/variants/odm,$(TARGET_COPY_OUT_ODM)/etc)
-
 # Inherit launch_with_vendor_ramdisk product
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
 
@@ -25,6 +19,7 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
 # Inherit common MediaTek IMS
+$(call inherit-product, vendor/mediatek/ims/ims.mk)
 
 # Strip the local variable table and the local variable type table to reduce
 # the size of the system image. This has no bearing on stack traces, but will
@@ -223,6 +218,11 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal_info_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
+
+# SKU
+PRODUCT_COPY_FILES += \
+    $(foreach f,$(wildcard $(DEVICE_PATH)/configs/props/variants/vendor/build_S980/*.prop),$(f):$(TARGET_COPY_OUT_VENDOR)/etc/props/$(notdir $(f))) \
+    $(foreach f,$(wildcard $(DEVICE_PATH)/configs/props/variants/odm/build_S980/*.prop),$(f):$(TARGET_COPY_OUT_ODM)/etc/$(notdir $(f)))
 
 # Vibrator
 PRODUCT_PACKAGES += \
