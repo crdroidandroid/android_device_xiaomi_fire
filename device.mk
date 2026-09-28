@@ -18,8 +18,6 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 # Project ID Quota
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
-# Inherit common MediaTek IMS
-
 # Strip the local variable table and the local variable type table to reduce
 # the size of the system image. This has no bearing on stack traces, but will
 # leave less information available via JDWP.
@@ -65,6 +63,17 @@ PRODUCT_PACKAGES += \
     fastbootd
 
 # Overlays
+$(call inherit-product, hardware/mediatek/overlay/mssi.mk)
+
+PRODUCT_PACKAGES += \
+    CarrierConfigOverlayFire \
+    FrameworksResOverlayFire \
+    SystemUIOverlayFire \
+    SettingsOverlayFire
+
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay-lineage
+
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
 # Partitions
@@ -75,6 +84,14 @@ PRODUCT_BUILD_SUPER_PARTITION := false
 PRODUCT_PACKAGES += \
     init.insmod.sh \
     init.pstore_blk.sh
+
+# IMS
+$(call inherit-product, hardware/lineage/compat/frameworks/compat.mk)
+$(call inherit-product, hardware/mediatek/frameworks/mediatek-frameworks.mk)
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/privapp-permissions-com.mediatek.ims.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-com.mediatek.ims.xml \
+    $(LOCAL_PATH)/configs/privapp-permissions-com.mediatek.telephony.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-com.mediatek.telephony.xml
 
 # Init
 PRODUCT_PACKAGES += \
@@ -154,17 +171,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libbase_shim
 
-# Overlays
-PRODUCT_PACKAGES += \
-    FrameworksResOverlayFire \
-    SettingsOverlayFire \
-    SystemUIOverlayFire \
-    TelephonyOverlayFire \
-    WifiResOverlayFire
-
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay-lineage
-
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
     frameworks/native/data/etc/android.hardware.audio.pro.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.pro.xml \
@@ -219,9 +225,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal_info_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
 
 # Vibrator
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.vibrator.service.ygorbrxx
+$(call soong_config_set, vibrator, vibratortargets, vibratoraidlV2target)
 
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.vibrator.service
+
+PRODUCT_COPY_FILES += \
+    vendor/qcom/opensource/vibrator/excluded-input-devices.xml:$(TARGET_COPY_OUT_VENDOR)/etc/excluded-input-devices.xml
 
 # Extra files
 TARGET_USES_VULKAN := true
@@ -272,9 +282,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.ir-service.example
 
+# UFFD GC
+PRODUCT_ENABLE_UFFD_GC := true
+
 # USB
-PRODUCT_PACKAGES += \
-    android.hardware.usb-service.mediatek
+$(call soong_config_set_bool,mediatek_gadget,use_custom_usb_gadget_rc,true)
 
 # Health
 PRODUCT_PACKAGES += \
@@ -296,7 +308,7 @@ $(call soong_config_set,power_libperfmgr,mode_extension_lib, //$(DEVICE_PATH):li
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors-service.xiaomi-multihal \
-android.hardware.sensors@2.0-subhal-impl-1.0 \
+    android.hardware.sensors@2.0-subhal-impl-1.0 \
     sensors.dynamic_sensor_hal
 
 # Thermal
