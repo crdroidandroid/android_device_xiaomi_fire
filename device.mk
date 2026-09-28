@@ -120,6 +120,9 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/mediatek/libaedv \
     hardware/mediatek/wlan/wifi_hal
 
+# MediaTek GED KPI integration in libgui
+$(call soong_config_set_bool,libgui,support_mtk_ged_kpi,true)
+
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2400
 TARGET_SCREEN_WIDTH := 1080
