@@ -505,7 +505,7 @@ ro.vendor.mtk_camera_app_version=3
 ro.vendor.mtk_config_max_dram_size=0x800000000
 ro.vendor.mtk_data_config=1
 ro.vendor.mtk_dmc_support=1
-ro.vendor.mtk_eccci_c2k=1
+ro.vendor.mtk_eccci_c2k=0
 ro.vendor.mtk_embms_support=1
 ro.vendor.mtk_emmc_support=1
 ro.vendor.mtk_external_sim_only_slots=0
@@ -659,3 +659,6 @@ ro.vendor.audio.us.proximity_waitfornegative_feature=true
 ro.hardware.fingerprint=goodix
 vendor.camera.aux.packagelist=org.lineageos.aperture,com.android.camera,com.google.android.GoogleCamera
 ro.vendor.mtk_md1_support=9
+
+# The modem queries ro.product.vendor.device through ccci_rpcd during boot.
+import /vendor/build_${ro.boot.board_id}.prop

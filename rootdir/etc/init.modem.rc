@@ -11,10 +11,15 @@ on early-init
 
 on post-fs-data
 
+    # Modem NV/OTP paths, matching the tested fire_modem_nv_fix module.
+    mkdir /mnt/vendor/md_sec 0770 root system
+    restorecon /mnt/vendor/md_sec
+    symlink /dev/block/by-name/otp /dev/otp
+    restorecon /dev/otp
+
     write /proc/bootprof "post-fs-data: on modem start"
 
 # Encrypt phone function
     setprop vold.post_fs_data_done 1
-
 
 

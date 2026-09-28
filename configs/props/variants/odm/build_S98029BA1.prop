@@ -1,0 +1,6 @@
+# Board identity from Redmi 12 stock OS2.0.209.0.VMXMIXM.
+ro.product.odm.brand=Redmi
+ro.product.odm.name=heat_global
+ro.product.odm.device=heat
+ro.product.odm.model=23053RN02Y
+ro.product.odm.marketname=Redmi 12

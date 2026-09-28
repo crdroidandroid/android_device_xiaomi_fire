@@ -6,6 +6,12 @@
 
 DEVICE_PATH := device/xiaomi/fire
 
+# Stock board-specific identity (fire / heat), selected by init property imports.
+PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,\
+    $(DEVICE_PATH)/configs/props/variants/vendor,$(TARGET_COPY_OUT_VENDOR))
+PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,\
+    $(DEVICE_PATH)/configs/props/variants/odm,$(TARGET_COPY_OUT_ODM)/etc)
+
 # Inherit launch_with_vendor_ramdisk product
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
 

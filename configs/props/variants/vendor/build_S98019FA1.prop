@@ -1,0 +1,7 @@
+# Board identity from Redmi 12 stock OS2.0.209.0.VMXMIXM.
+ro.product.vendor.brand=Redmi
+ro.product.vendor.name=fire_global
+ro.product.vendor.device=fire
+ro.product.vendor.model=23053RN02L
+ro.product.vendor.marketname=Redmi 12
+ro.product.board=fire

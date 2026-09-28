@@ -1,4 +1,4 @@
-# SKU
+# Select the board identity before init derives ro.product.* properties.
 ro.product.property_source_order=odm,product,vendor,system_ext,system
-import /odm/etc/build_${ro.boot.product.hardware.sku}.prop
-import /vendor/odm/etc/build_${ro.boot.product.hardware.sku}.prop
+import /odm/etc/build_${ro.boot.board_id}.prop
+import /vendor/odm/etc/build_${ro.boot.board_id}.prop
