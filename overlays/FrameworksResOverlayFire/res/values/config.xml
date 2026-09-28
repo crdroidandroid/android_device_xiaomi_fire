@@ -7,6 +7,15 @@
     <!-- Bounding path of the punch hole display cutout (center top) -->
     <string name="config_mainBuiltInDisplayCutout">M 0,0 H -35 V 104 H 35 V 0 H 0 Z</string>
 
+    <!-- Control whether the always on display mode is available. This should only be enabled on
+         devices where the display has been tuned to be power efficient in DOZE and/or DOZE_SUSPEND
+         states. -->
+    <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
+
+    <!-- Control whether the always on display mode is enabled by default. This value will be used
+         during initialization when the setting is still null. -->
+    <bool name="config_dozeAlwaysOnEnabled">false</bool>
+
     <!-- Light sensor type and Always-on Display dream component -->
     <string name="config_displayLightSensorType">android.sensor.light</string>
     <string name="config_dozeComponent">com.android.dreams.alwaysondisplay/.AlwaysOnDisplay</string>
