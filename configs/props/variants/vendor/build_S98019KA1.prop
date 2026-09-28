@@ -5,3 +5,6 @@ ro.product.vendor.device=fire
 ro.product.vendor.model=23053RN02I
 ro.product.vendor.marketname=Redmi 12
 ro.product.board=fire
+
+# Device name
+ro.product.marketname=Xiaomi Redmi 12 4G

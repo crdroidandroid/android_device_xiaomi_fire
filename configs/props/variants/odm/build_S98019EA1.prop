@@ -4,3 +4,6 @@ ro.product.odm.name=fire_global
 ro.product.odm.device=fire
 ro.product.odm.model=23053RN02L
 ro.product.odm.marketname=Redmi 12
+
+# Device name
+ro.product.marketname=Xiaomi Redmi 12 4G

@@ -229,8 +229,8 @@ PRODUCT_COPY_FILES += \
 
 # SKU
 PRODUCT_COPY_FILES += \
-    $(foreach f,$(wildcard $(DEVICE_PATH)/configs/props/variants/vendor/build_S980/*.prop),$(f):$(TARGET_COPY_OUT_VENDOR)/etc/props/$(notdir $(f))) \
-    $(foreach f,$(wildcard $(DEVICE_PATH)/configs/props/variants/odm/build_S980/*.prop),$(f):$(TARGET_COPY_OUT_ODM)/etc/$(notdir $(f)))
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/props/variants/vendor/,$(TARGET_COPY_OUT_VENDOR)) \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/props/variants/odm/,$(TARGET_COPY_OUT_ODM)/etc)
 
 # Vibrator
 $(call soong_config_set, vibrator, vibratortargets, vibratoraidlV2target)
