@@ -1,0 +1,4 @@
+# fire thermal HAL only reads MediaTek thermal sysfs.
+allow hal_thermal_default sysfs_therm:dir { open read search getattr };
+allow hal_thermal_default sysfs_therm:file { open read getattr };
+allow hal_thermal_default sysfs_therm:lnk_file { read getattr };

@@ -1,0 +1,7 @@
+service vendor.fire-thermal /vendor/bin/hw/android.hardware.thermal-service.fire
+    class hal
+    user system
+    group system
+    seclabel u:r:hal_thermal_default:s0
+    interface aidl android.hardware.thermal.IThermal/default
+    oneshot

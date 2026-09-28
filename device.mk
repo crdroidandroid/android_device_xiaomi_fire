@@ -307,7 +307,7 @@ android.hardware.sensors@2.0-subhal-impl-1.0 \
 
 # Thermal
 PRODUCT_PACKAGES += \
-    android.hardware.thermal-service.example \
+    android.hardware.thermal-service.fire \
     thermal_symlinks_mediatek
 
 PRODUCT_PACKAGES += \
@@ -335,10 +335,6 @@ $(call inherit-product, vendor/xiaomi/fire/fire-vendor.mk)
 
 
 PRODUCT_PACKAGES += android.hardware.audio.effect.service-aidl.example
-
-PRODUCT_PACKAGES += android.hardware.thermal-service.example
-
-PRODUCT_PACKAGES += android.hardware.thermal.example.rc
 
 
 PRODUCT_COPY_FILES += \
