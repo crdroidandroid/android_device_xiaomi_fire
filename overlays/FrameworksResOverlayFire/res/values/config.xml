@@ -7,26 +7,32 @@
     <!-- Bounding path of the punch hole display cutout (center top) -->
     <string name="config_mainBuiltInDisplayCutout">M 0,0 H -35 V 104 H 35 V 0 H 0 Z</string>
 
-    <!-- Control whether the always on display mode is available. This should only be enabled on
-         devices where the display has been tuned to be power efficient in DOZE and/or DOZE_SUSPEND
-         states. -->
+    <!-- Control whether the always on display mode is available -->
     <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
 
-    <!-- Control whether the always on display mode is enabled by default. This value will be used
-         during initialization when the setting is still null. -->
+    <!-- Control whether the always on display mode is enabled by default -->
     <bool name="config_dozeAlwaysOnEnabled">false</bool>
 
-    <!-- Light sensor type and Always-on Display dream component -->
-    <string name="config_displayLightSensorType">android.sensor.light</string>
-    <string name="config_dozeComponent">com.android.dreams.alwaysondisplay/.AlwaysOnDisplay</string>
-    <integer name="config_screenBrightnessDoze">5</integer>
-    <integer name="config_shortPressOnPowerBehavior">1</integer>
+    <!-- ComponentName of a dream to show whenever the system would otherwise have
+         gone to sleep. Must point to SystemUI's DozeService. -->
+    <string name="config_dozeComponent" translatable="false">com.android.systemui/com.android.systemui.doze.DozeService</string>
 
     <!-- Power decoupling and display sleep flags -->
-    <bool name="config_dozeAfterScreenOff">true</bool>
+    <bool name="config_dozeAfterScreenOff">false</bool>
     <bool name="config_powerDecoupleAutoSuspendModeFromDisplay">true</bool>
     <bool name="config_powerDecoupleInteractiveModeFromDisplay">true</bool>
     <bool name="config_suspendWhenScreenOffDueToProximity">true</bool>
+
+    <!-- Screen brightness while dozing in a very low power state (tuned for IPS backlight) -->
+    <integer name="config_screenBrightnessDoze">15</integer>
+    <item name="config_screenBrightnessDozeFloat" format="float" type="dimen">0.05</item>
+
+    <!-- Whether the display hardware only has brightness buckets rather than a full range of backlight values -->
+    <bool name="config_displayBrightnessBucketsInDoze">false</bool>
+
+    <!-- Light sensor type and power key behavior -->
+    <string name="config_displayLightSensorType">android.sensor.light</string>
+    <integer name="config_shortPressOnPowerBehavior">1</integer>
 
     <!-- Hardware auto-brightness levels from stock FrameworkResOverlayExt -->
     <integer-array name="config_autoBrightnessLevels">
@@ -103,6 +109,10 @@
         <item>500</item>
         <item>500</item>
     </integer-array>
+
+    <!-- Display refresh rates -->
+    <integer name="config_defaultRefreshRate">0</integer>
+    <integer name="config_defaultPeakRefreshRate">90</integer>
 
     <!-- Auto-brightness debounce timings -->
     <integer name="config_autoBrightnessBrighteningLightDebounce">1000</integer>

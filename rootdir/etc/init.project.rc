@@ -2,9 +2,6 @@ import /vendor/etc/init/hw/init.mtkgki.rc
 
 # MTK project .rc configure
 
-import /vendor/odm/etc/init/${ro.boot.product.hardware.sku}/init.stnfc.rc
-import /vendor/odm/etc/init/${ro.boot.product.hardware.sku}/android.hardware.nfc@1.2-service-st.rc
-
 on early-init
     exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules trace_mmstat.ko
 
@@ -17,6 +14,39 @@ on init
     mkdir /storage/usbotg 0700 root root
 
 on post-fs-data
+
+#NFC
+    mkdir /data/vendor/nfc 0770 nfc nfc
+    chmod 0660 /dev/nq-nci
+    chown nfc nfc /dev/nq-nci
+    chmod 0660 /dev/p73
+    chown nfc nfc /dev/p73
+
+service vendor.nfc_hal_service /vendor/bin/hw/android.hardware.nqnfc-service.nxp
+    override
+    class hal
+    user nfc
+    group nfc oem_2912
+    disabled
+    interface aidl android.hardware.nfc.INfc/default
+
+on property:ro.boot.board_id=S98029AA1
+    setprop ro.boot.product.hardware.sku hcesim
+    setprop ro.vendor.se.type HCE,UICC
+    setprop ro.vendor.nfc.repair 1
+    start vendor.nfc_hal_service
+
+on property:ro.boot.board_id=S98029BA1
+    setprop ro.boot.product.hardware.sku hcesim
+    setprop ro.vendor.se.type HCE,UICC
+    setprop ro.vendor.nfc.repair 1
+    start vendor.nfc_hal_service
+
+on property:ro.boot.board_id=TBD
+    setprop ro.boot.product.hardware.sku hcesim
+    setprop ro.vendor.se.type HCE,UICC
+    setprop ro.vendor.nfc.repair 1
+    start vendor.nfc_hal_service
 
 #Thermal
     mkdir /data/vendor/thermal 0771 root system

@@ -19,8 +19,8 @@ $(call inherit-product, device/xiaomi/fire/device.mk)
 
 PRODUCT_DEVICE := fire
 PRODUCT_NAME := lineage_fire
-PRODUCT_BRAND := Redmi
-PRODUCT_MODEL := 23053RN02Y
+PRODUCT_BRAND := Xiaomi
+PRODUCT_MODEL := Redmi 12 4G
 PRODUCT_MANUFACTURER := Xiaomi
 
 PRODUCT_SYSTEM_NAME := fire_global
