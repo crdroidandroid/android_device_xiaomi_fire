@@ -1,27 +1,18 @@
 [
   {
-    "repository": "android_device_mediatek_sepolicy_vndr",
-    "target_path": "device/mediatek/sepolicy_vndr",
-    "branch": "16.0"
+    "repository": "crdroidandroid/android_device_mediatek_sepolicy_vndr",
+    "target_path": "device/mediatek/sepolicy_vndr"
   },
   {
-    "repository": "android_hardware_mediatek",
-    "target_path": "hardware/mediatek",
-    "branch": "16.0"
+    "repository": "crdroidandroid/android_hardware_mediatek",
+    "target_path": "hardware/mediatek"
   },
   {
-    "repository": "android_hardware_xiaomi",
-    "target_path": "hardware/xiaomi",
-    "branch": "16.0"
+    "repository": "crdroidandroid/android_hardware_xiaomi",
+    "target_path": "hardware/xiaomi"
   },
   {
-    "repository": "MoonL1ght-Team/android_device_xiaomi_fire-kernel",
-    "target_path": "device/xiaomi/fire-kernel",
-    "branch": "master"
-  },
-  {
-    "repository": "MoonL1ght-Team/proprietary_vendor_xiaomi_fire",
-    "target_path": "vendor/xiaomi/fire",
-    "branch": "oss"
+    "repository": "crdroidandroid/android_device_xiaomi_fire-kernel",
+    "target_path": "device/xiaomi/fire-kernel"
   }
 ]

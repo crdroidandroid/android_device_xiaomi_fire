@@ -352,6 +352,7 @@ ro.hardware.egl=meow
 ro.hardware.fp.sideCap=true
 ro.hardware.gatekeeper=beanpod
 ro.hardware.hwcomposer=mt6768
+ro.hardware.gralloc=mediatek
 ro.hardware.kmsetkey=beanpod
 ro.hardware.vulkan=mali
 ro.hardware.wechat=beanpod
