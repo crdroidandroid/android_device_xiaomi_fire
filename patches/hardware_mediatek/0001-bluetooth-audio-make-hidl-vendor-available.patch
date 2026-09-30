@@ -1,0 +1,24 @@
+diff --git a/interfaces/hardware/bluetooth/audio/2.1/Android.bp b/interfaces/hardware/bluetooth/audio/2.1/Android.bp
+index 32ae6c3..deeff25 100644
+--- a/interfaces/hardware/bluetooth/audio/2.1/Android.bp
++++ b/interfaces/hardware/bluetooth/audio/2.1/Android.bp
+@@ -5,7 +5,6 @@
+ hidl_interface {
+     name: "vendor.mediatek.hardware.bluetooth.audio@2.1",
+     root: "vendor.mediatek.hardware",
+-    system_ext_specific: true,
+     srcs: [
+         "types.hal",
+         "IBluetoothAudioPort.hal",
+diff --git a/interfaces/hardware/bluetooth/audio/2.2/Android.bp b/interfaces/hardware/bluetooth/audio/2.2/Android.bp
+index 0f9da9c..a0c5663 100644
+--- a/interfaces/hardware/bluetooth/audio/2.2/Android.bp
++++ b/interfaces/hardware/bluetooth/audio/2.2/Android.bp
+@@ -5,7 +5,6 @@
+ hidl_interface {
+     name: "vendor.mediatek.hardware.bluetooth.audio@2.2",
+     root: "vendor.mediatek.hardware",
+-    system_ext_specific: true,
+     srcs: [
+         "types.hal",
+         "IBluetoothAudioProvider.hal",
