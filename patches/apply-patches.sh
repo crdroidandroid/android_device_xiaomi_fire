@@ -30,4 +30,7 @@ apply_patch \
     "$fire_patches/frameworks_native/0001-libgui-feed-frames-to-mtk-fpsgo.patch" \
     "fire FPSGO libgui patch"
 
-apply_patch \n    "$root/hardware/mediatek" \n    "$fire_patches/hardware_mediatek/0001-bluetooth-audio-make-hidl-vendor-available.patch" \n    "fire MediaTek Bluetooth audio HIDL patch"
+apply_patch \
+    "$root/hardware/mediatek" \
+    "$fire_patches/hardware_mediatek/0001-bluetooth-audio-make-hidl-vendor-available.patch" \
+    "fire MediaTek Bluetooth audio HIDL patch"
